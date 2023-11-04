@@ -1,8 +1,13 @@
 package edu.pucp.gtics.lab11_gtics_20232.controller;
 
-import edu.pucp.gtics.lab11_gtics_20232.entity.*;
-import edu.pucp.gtics.lab11_gtics_20232.repository.*;
-import org.springframework.beans.factory.annotation.Autowired;
+import edu.pucp.gtics.lab11_gtics_20232.dao.DistribuidorasDao;
+import edu.pucp.gtics.lab11_gtics_20232.dao.GenerosDao;
+import edu.pucp.gtics.lab11_gtics_20232.dao.JuegosDao;
+import edu.pucp.gtics.lab11_gtics_20232.dao.PlataformasDao;
+import edu.pucp.gtics.lab11_gtics_20232.entity.Distribuidoras;
+import edu.pucp.gtics.lab11_gtics_20232.entity.Generos;
+import edu.pucp.gtics.lab11_gtics_20232.entity.Juegos;
+import edu.pucp.gtics.lab11_gtics_20232.entity.Plataformas;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -14,41 +19,35 @@ import java.util.List;
 import java.util.Optional;
 
 @Controller
+@RequestMapping(value="/juegos")
 public class JuegosController {
 
-    @Autowired
-    JuegosRepository juegosRepository;
+   final JuegosDao juegosDao;
+   final PlataformasDao plataformasDao;
+   final DistribuidorasDao distribuidorasDao;
+   final GenerosDao generosDao;
 
-    @Autowired
-    PlataformasRepository plataformasRepository;
-
-    @Autowired
-    DistribuidorasRepository distribuidorasRepository;
-
-    @Autowired
-    GenerosRepository generosRepository;
-
-    @Autowired
-    UserRepository userRepository;
-
-    @GetMapping(value = {"/juegos/lista"})
-    public String listaJuegos (/*Reemplazar según sea necesario*/){
-        return null; //Reemplazar por la vista
+    public JuegosController(JuegosDao juegosDao, PlataformasDao plataformasDao, DistribuidorasDao distribuidorasDao, GenerosDao generosDao) {
+        this.juegosDao = juegosDao;
+        this.plataformasDao = plataformasDao;
+        this.distribuidorasDao = distribuidorasDao;
+        this.generosDao = generosDao;
     }
 
-
-    @GetMapping("/juegos/nuevo")
+    @GetMapping(value = {"", "/"})
+    public String listaJuegos (Model model){
+        model.addAttribute("listajuegos", juegosDao.listar());
+        return "juegos/lista";
+    }
+    @PostMapping(value = {"", "/"})
     public String nuevoJuegos(Model model, @ModelAttribute("juego") Juegos juego){
-        List<Plataformas> listaPlataformas = plataformasRepository.findAll();
-        List<Distribuidoras> listaDistribuidoras = distribuidorasRepository.findAll();
-        List<Generos> listaGeneros = generosRepository.findAll();
-        model.addAttribute("listaPlataformas", listaPlataformas);
-        model.addAttribute("listaDistribuidoras", listaDistribuidoras);
-        model.addAttribute("listaGeneros", listaGeneros);
+        model.addAttribute("listaPlataformas", plataformasDao.listar());
+        model.addAttribute("listaDistribuidoras", distribuidorasDao.listar());
+        model.addAttribute("listaGeneros", generosDao.listar());
         return "juegos/editarFrm";
     }
 
-    @GetMapping("/juegos/editar")
+    @PutMapping(value = {"", "/"})
     public String editarJuegos(@RequestParam("id") int id, Model model){
         Optional<Juegos> opt = juegosRepository.findById(id);
         List<Plataformas> listaPlataformas = plataformasRepository.findAll();
