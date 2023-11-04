@@ -14,7 +14,6 @@ import java.util.List;
 import java.util.Optional;
 
 @Controller
-
 public class JuegosController {
 
     @Autowired
@@ -37,10 +36,6 @@ public class JuegosController {
         return null; //Reemplazar por la vista
     }
 
-    @GetMapping(value = {"", "/", "/vista"})
-    public String vistaJuegos (/*Reemplazar según sea necesario*/){
-        return null; //Reemplazar por la vista
-    }
 
     @GetMapping("/juegos/nuevo")
     public String nuevoJuegos(Model model, @ModelAttribute("juego") Juegos juego){

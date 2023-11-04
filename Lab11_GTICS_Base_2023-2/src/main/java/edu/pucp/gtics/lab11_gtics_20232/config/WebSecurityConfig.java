@@ -40,10 +40,12 @@ public class WebSecurityConfig  {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
 
-        http.formLogin().loginPage("/login").loginProcessingUrl("/loginprocess")
-                .defaultSuccessUrl("/juegos/lista", true)
+        http.formLogin().loginPage("/login").loginProcessingUrl("/loginProcess")
+                .defaultSuccessUrl("/juegos/lista", true);
+/*
                 .failureUrl("/login?error=bad_credentials")
                 .and().exceptionHandling().accessDeniedPage("/accessDenied");
+*/
 
         http.authorizeRequests()
                 .antMatchers("/juegos/**").hasAnyAuthority("ADMIN")
