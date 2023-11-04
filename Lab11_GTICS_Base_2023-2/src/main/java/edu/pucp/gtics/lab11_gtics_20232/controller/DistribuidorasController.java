@@ -1,10 +1,8 @@
 package edu.pucp.gtics.lab11_gtics_20232.controller;
 
+import edu.pucp.gtics.lab11_gtics_20232.dao.DistribuidorasDao;
 import edu.pucp.gtics.lab11_gtics_20232.entity.Distribuidoras;
 import edu.pucp.gtics.lab11_gtics_20232.entity.Paises;
-import edu.pucp.gtics.lab11_gtics_20232.repository.DistribuidorasRepository;
-import edu.pucp.gtics.lab11_gtics_20232.repository.PaisesRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,17 +19,14 @@ import java.util.Optional;
 
 public class DistribuidorasController {
 
-    @Autowired
-    DistribuidorasRepository distribuidorasRepository;
+   final DistribuidorasDao distribuidorasDao;
 
-    @Autowired
-    PaisesRepository paisesRepository;
-
+    public DistribuidorasController(DistribuidorasDao distribuidorasDao) {
+        this.distribuidorasDao = distribuidorasDao;
+    }
     @GetMapping(value = {"/lista"})
     public String listaDistribuidoras (Model model){
-        List<Distribuidoras> listadistribuidoras = distribuidorasRepository.findAll(Sort.by("nombre"));
-        model.addAttribute("listadistribuidoras", listadistribuidoras);
-
+        model.addAttribute("listadistribuidoras", distribuidorasDao.listar());
         return "distribuidoras/lista";
     }
 

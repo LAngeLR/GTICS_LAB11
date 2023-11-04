@@ -1,8 +1,7 @@
 package edu.pucp.gtics.lab11_gtics_20232.controller;
 
+import edu.pucp.gtics.lab11_gtics_20232.dao.PlataformasDao;
 import edu.pucp.gtics.lab11_gtics_20232.entity.Plataformas;
-import edu.pucp.gtics.lab11_gtics_20232.repository.PlataformasRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,17 +15,17 @@ import java.util.Optional;
 
 @Controller
 @RequestMapping("/plataformas")
-
 public class PlataformasController {
 
-    @Autowired
-    PlataformasRepository plataformasRepository;
+    final PlataformasDao plataformasDao;
+
+    public PlataformasController(PlataformasDao plataformasDao) {
+        this.plataformasDao = plataformasDao;
+    }
 
     @GetMapping(value = {"/lista"})
     public String listaPlataformas (Model model){
-        List<Plataformas> listaplataformas = plataformasRepository.findAll(Sort.by("nombre"));
-        model.addAttribute("listaplataformas", listaplataformas);
-
+        model.addAttribute("listajuegos", plataformasDao.listar());
         return "plataformas/lista";
     }
 
