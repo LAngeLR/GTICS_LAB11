@@ -33,13 +33,13 @@ public class JuegosController {
     UserRepository userRepository;
 
     @GetMapping(value = {"/juegos/lista"})
-    public String listaJuegos (...){
-
+    public String listaJuegos (/*Reemplazar según sea necesario*/){
+        return null; //Reemplazar por la vista
     }
 
     @GetMapping(value = {"", "/", "/vista"})
-    public String vistaJuegos ( ...){
-
+    public String vistaJuegos (/*Reemplazar según sea necesario*/){
+        return null; //Reemplazar por la vista
     }
 
     @GetMapping("/juegos/nuevo")
