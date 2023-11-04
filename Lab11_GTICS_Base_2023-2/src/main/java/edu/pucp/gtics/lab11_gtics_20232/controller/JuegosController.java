@@ -39,7 +39,6 @@ public class JuegosController {
         model.addAttribute("listajuegos", juegosDao.listar());
         return "juegos/lista";
     }
-
     @PostMapping(value = {"", "/"})
     public String nuevoJuegos(Model model, @ModelAttribute("juego") Juegos juego){
         model.addAttribute("listaPlataformas", plataformasDao.listar());
