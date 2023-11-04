@@ -1,8 +1,11 @@
 package edu.pucp.gtics.lab11_gtics_20232.controller;
 
+
+import edu.pucp.gtics.lab11_gtics_20232.repository.DistribuidorasRepository;
+import edu.pucp.gtics.lab11_gtics_20232.repository.PaisesRepository;
 import edu.pucp.gtics.lab11_gtics_20232.dao.PlataformasDao;
 import edu.pucp.gtics.lab11_gtics_20232.entity.Plataformas;
-import org.springframework.data.domain.Sort;
+import edu.pucp.gtics.lab11_gtics_20232.repository.PlataformasRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -10,7 +13,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
-import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -19,8 +21,19 @@ public class PlataformasController {
 
     final PlataformasDao plataformasDao;
 
-    public PlataformasController(PlataformasDao plataformasDao) {
+    final DistribuidorasRepository distribuidorasRepository;
+
+    final PaisesRepository paisesRepository;
+
+    final PlataformasRepository plataformasRepository;
+
+
+
+    public PlataformasController(PlataformasDao plataformasDao, DistribuidorasRepository distribuidorasRepository, PaisesRepository paisesRepository, PlataformasRepository plataformasRepository) {
         this.plataformasDao = plataformasDao;
+        this.distribuidorasRepository = distribuidorasRepository;
+        this.paisesRepository = paisesRepository;
+        this.plataformasRepository = plataformasRepository;
     }
 
     @GetMapping(value = {"/lista"})

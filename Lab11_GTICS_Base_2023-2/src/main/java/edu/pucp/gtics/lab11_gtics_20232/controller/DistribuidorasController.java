@@ -1,9 +1,11 @@
 package edu.pucp.gtics.lab11_gtics_20232.controller;
 
+
+import edu.pucp.gtics.lab11_gtics_20232.repository.DistribuidorasRepository;
+import edu.pucp.gtics.lab11_gtics_20232.repository.PaisesRepository;
 import edu.pucp.gtics.lab11_gtics_20232.dao.DistribuidorasDao;
 import edu.pucp.gtics.lab11_gtics_20232.entity.Distribuidoras;
 import edu.pucp.gtics.lab11_gtics_20232.entity.Paises;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -21,8 +23,14 @@ public class DistribuidorasController {
 
    final DistribuidorasDao distribuidorasDao;
 
-    public DistribuidorasController(DistribuidorasDao distribuidorasDao) {
+   final DistribuidorasRepository distribuidorasRepository;
+
+   final PaisesRepository paisesRepository;
+
+    public DistribuidorasController(DistribuidorasDao distribuidorasDao, DistribuidorasRepository distribuidorasRepository, PaisesRepository paisesRepository) {
         this.distribuidorasDao = distribuidorasDao;
+        this.distribuidorasRepository = distribuidorasRepository;
+        this.paisesRepository = paisesRepository;
     }
     @GetMapping(value = {"/lista"})
     public String listaDistribuidoras (Model model){
