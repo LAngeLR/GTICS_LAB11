@@ -16,7 +16,7 @@ public class PlataformasDao {
         List<Plataformas> lista = new ArrayList<>();
 
         RestTemplate restTemplate = new RestTemplate();
-        String endPoint = "http://localhost:8080/plataformas";
+        String endPoint = "http://localhost:8081/api/plataformas/lista";
         ResponseEntity<Plataformas[]> responseEntity = restTemplate.getForEntity(endPoint,Plataformas[].class);
         if (responseEntity.getStatusCode().is2xxSuccessful()) {
             Plataformas[] body = responseEntity.getBody();

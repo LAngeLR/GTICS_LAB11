@@ -17,7 +17,7 @@ public class DistribuidorasDao {
         List<Distribuidoras> lista = new ArrayList<>();
 
         RestTemplate restTemplate = new RestTemplate();
-        String endPoint = "http://localhost:8080/distribuidoras";
+        String endPoint = "http://localhost:8081/api/distribuidora/lista";
         ResponseEntity<Distribuidoras[]> responseEntity = restTemplate.getForEntity(endPoint,Distribuidoras[].class);
         if (responseEntity.getStatusCode().is2xxSuccessful()) {
             Distribuidoras[] body = responseEntity.getBody();
