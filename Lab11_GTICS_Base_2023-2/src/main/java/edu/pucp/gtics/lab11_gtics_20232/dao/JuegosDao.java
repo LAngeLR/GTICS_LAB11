@@ -28,10 +28,11 @@ public class JuegosDao {
        return lista;
    }
 
-   public List<Juegos> listarMisJuegos(Integer idUsuario){
+   public List<JuegosxUsuario> listarMisJuegos(Integer idUsuario){
        RestTemplate restTemplate = new RestTemplate();
        String url = "http://localhost:8081/api/juegos/lista?id="+idUsuario;
        ResponseEntity<Juegos[]> responseEntity = restTemplate.getForEntity(url, Juegos[].class);
+
        return Arrays.asList(responseEntity.getBody());
    }
 
