@@ -3,6 +3,9 @@ package edu.pucp.gtics.lab11_gtics_20232.dao;
 
 import edu.pucp.gtics.lab11_gtics_20232.entity.*;
 import org.springframework.boot.web.client.RestTemplateBuilder;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
@@ -34,5 +37,40 @@ public class JuegosDao {
        ResponseEntity<JuegosxUsuario[]> responseEntity = restTemplate.getForEntity(url, JuegosxUsuario[].class);
        return Arrays.asList(responseEntity.getBody());
    }
+
+    public void guardar(Juegos juego){
+
+        RestTemplate restTemplate = new RestTemplate();
+        String endPoint = "http://localhost:8081/api/juegos/lista";
+
+        HttpHeaders httpHeaders = new HttpHeaders();
+        httpHeaders.setContentType(MediaType.APPLICATION_JSON);
+
+        HttpEntity<Juegos> httpEntity = new HttpEntity<>(juego,httpHeaders);
+
+        if(juego.getIdjuego() == null){
+            restTemplate.postForEntity(endPoint,httpEntity,Juegos.class);
+        }else{
+            restTemplate.put(endPoint,httpEntity,Juegos.class);
+        }
+
+    }
+
+    public Juegos buscarPorId(int id){
+
+        Juegos juego = null;
+
+        RestTemplate restTemplate = new RestTemplate();
+
+        String url = "http://localhost:8081/api/juegos/lista?id=" + id;
+
+        ResponseEntity<Juegos> forEntity = restTemplate.getForEntity(url, Juegos.class);
+
+        if (forEntity.getStatusCode().is2xxSuccessful()) {
+            juego = forEntity.getBody();
+        }
+
+        return juego;
+    }
 
 }

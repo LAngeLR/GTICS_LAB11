@@ -53,12 +53,48 @@ public class JuegosController {
         return "juegos/comprado";
     }
 
-    @PostMapping(value = { "/nuevo"})
+    @GetMapping(value = { "/nuevo"})
     public String nuevoJuegos(Model model, @ModelAttribute("juego") Juegos juego){
         model.addAttribute("listaPlataformas", plataformasDao.listar());
         model.addAttribute("listaDistribuidoras", distribuidorasDao.listar());
         model.addAttribute("listaGeneros", generosDao.listar());
         return "juegos/editarFrm";
+    }
+
+    @PostMapping("/guardar")
+    public String guardarProducto(@ModelAttribute("juego") @Valid Juegos juego, BindingResult bindingResult,
+                                  Model model, RedirectAttributes attr) {
+
+        if (bindingResult.hasErrors()) {
+            model.addAttribute("listaPlataformas", plataformasDao.listar());
+            model.addAttribute("listaDistribuidoras", distribuidorasDao.listar());
+            model.addAttribute("listaGeneros", generosDao.listar());
+            return "juegos/editarFrm";
+        } else {
+            String msg = "Juego " + (juego.getIdjuego() == null ? "creado" : "actualizado") + " exitosamente";
+            attr.addFlashAttribute("msg", msg);
+            // productRepository.save(product);
+            juegosDao.guardar(juego); //voy a hacer la validación de guardar o actualizar en el dao.
+            return "redirect:/juegos/lista";
+        }
+    }
+
+    @GetMapping("/editar")
+    public String editarJuego(@ModelAttribute("juego") Juegos juego,
+                                      Model model, @RequestParam("id") int id) {
+
+        Juegos juego1 = juegosDao.buscarPorId(id);
+
+        if(juego1 != null) {
+            juego = juego1;
+            model.addAttribute("juego", juego);
+            model.addAttribute("listaPlataformas", plataformasDao.listar());
+            model.addAttribute("listaDistribuidoras", distribuidorasDao.listar());
+            model.addAttribute("listaGeneros", generosDao.listar());
+            return "juegos/editarFrm";
+        } else {
+            return "redirect:/juegos/lista";
+        }
     }
 /*
     @PutMapping(value = {"", "/"})
