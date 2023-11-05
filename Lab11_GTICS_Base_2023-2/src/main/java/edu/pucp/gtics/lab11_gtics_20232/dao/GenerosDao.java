@@ -1,6 +1,7 @@
 package edu.pucp.gtics.lab11_gtics_20232.dao;
 import edu.pucp.gtics.lab11_gtics_20232.entity.Generos;
 import edu.pucp.gtics.lab11_gtics_20232.entity.Juegos;
+import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;

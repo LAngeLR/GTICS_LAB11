@@ -3,6 +3,7 @@ package edu.pucp.gtics.lab11_gtics_20232.dao;
 import edu.pucp.gtics.lab11_gtics_20232.entity.Distribuidoras;
 import edu.pucp.gtics.lab11_gtics_20232.entity.Juegos;
 import edu.pucp.gtics.lab11_gtics_20232.entity.Paises;
+import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;

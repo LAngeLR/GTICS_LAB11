@@ -4,6 +4,7 @@ import edu.pucp.gtics.lab11_gtics_20232.entity.CarritoCompras;
 import edu.pucp.gtics.lab11_gtics_20232.entity.Juegos;
 import edu.pucp.gtics.lab11_gtics_20232.entity.PaqueteJuegos;
 import edu.pucp.gtics.lab11_gtics_20232.entity.User;
+import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
