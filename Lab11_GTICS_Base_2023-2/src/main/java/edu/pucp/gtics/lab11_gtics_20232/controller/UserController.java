@@ -3,7 +3,6 @@ package edu.pucp.gtics.lab11_gtics_20232.controller;
 
 import edu.pucp.gtics.lab11_gtics_20232.dao.UsuarioDao;
 import edu.pucp.gtics.lab11_gtics_20232.entity.User;
-import edu.pucp.gtics.lab11_gtics_20232.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

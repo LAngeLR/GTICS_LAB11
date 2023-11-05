@@ -1,8 +1,7 @@
 package edu.pucp.gtics.lab11_gtics_20232.controller;
 
 
-import edu.pucp.gtics.lab11_gtics_20232.repository.DistribuidorasRepository;
-import edu.pucp.gtics.lab11_gtics_20232.repository.PaisesRepository;
+
 import edu.pucp.gtics.lab11_gtics_20232.dao.DistribuidorasDao;
 import edu.pucp.gtics.lab11_gtics_20232.entity.Distribuidoras;
 import edu.pucp.gtics.lab11_gtics_20232.entity.Paises;
@@ -23,21 +22,18 @@ public class DistribuidorasController {
 
    final DistribuidorasDao distribuidorasDao;
 
-   final DistribuidorasRepository distribuidorasRepository;
-
-   final PaisesRepository paisesRepository;
-
-    public DistribuidorasController(DistribuidorasDao distribuidorasDao, DistribuidorasRepository distribuidorasRepository, PaisesRepository paisesRepository) {
+    public DistribuidorasController(DistribuidorasDao distribuidorasDao) {
         this.distribuidorasDao = distribuidorasDao;
-        this.distribuidorasRepository = distribuidorasRepository;
-        this.paisesRepository = paisesRepository;
     }
+
+
+
     @GetMapping(value = {"/lista"})
     public String listaDistribuidoras (Model model){
         model.addAttribute("listadistribuidoras", distribuidorasDao.listar());
         return "distribuidoras/lista";
     }
-
+/*
     @GetMapping("/editar")
     public String editarDistribuidoras(@RequestParam("id") int id, Model model){
         Optional<Distribuidoras> opt = distribuidorasRepository.findById(id);
@@ -86,5 +82,5 @@ public class DistribuidorasController {
         }
         return "redirect:/distribuidoras/lista";
     }
-
+*/
 }
