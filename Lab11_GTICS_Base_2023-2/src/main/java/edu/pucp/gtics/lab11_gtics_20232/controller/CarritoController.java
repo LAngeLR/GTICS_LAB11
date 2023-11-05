@@ -12,9 +12,9 @@ public class CarritoController {
 
 
 
+
     @GetMapping(value = { "","/"})
     public String listaCarrito (Model model){
-
         return "carrito/lista";
     }
 
