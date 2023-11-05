@@ -1,25 +1,29 @@
 package edu.pucp.gtics.lab11_gtics_20232.controller;
 
 
+import edu.pucp.gtics.lab11_gtics_20232.dao.GenerosDao;
 import edu.pucp.gtics.lab11_gtics_20232.dao.PlataformasDao;
+import edu.pucp.gtics.lab11_gtics_20232.entity.Juegos;
 import edu.pucp.gtics.lab11_gtics_20232.entity.Plataformas;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
-import java.util.Optional;
 
 @Controller
 @RequestMapping("/plataformas")
 public class PlataformasController {
 
     final PlataformasDao plataformasDao;
+    final GenerosDao generosDao;
 
-    public PlataformasController(PlataformasDao plataformasDao) {
+    public PlataformasController(PlataformasDao plataformasDao, GenerosDao generosDao) {
         this.plataformasDao = plataformasDao;
+        this.generosDao = generosDao;
     }
 
 
@@ -28,21 +32,22 @@ public class PlataformasController {
         model.addAttribute("listaplataformas", plataformasDao.listar());
         return "plataformas/lista";
     }
-/*
     @GetMapping("/editar")
-    public String editarPlataformas(@RequestParam("id") int id, Model model){
-        Optional<Plataformas> opt = plataformasRepository.findById(id);
+    public String editarPlataformas(@ModelAttribute("plataforma") Plataformas plataforma,
+                                      Model model, @RequestParam("id") int id) {
 
-        if (opt.isPresent()){
-            Plataformas plataforma = opt.get();
+        Plataformas plataforma1 = plataformasDao.buscarPorId(id);
+
+        if(plataforma1 != null) {
+            plataforma = plataforma1;
             model.addAttribute("plataforma", plataforma);
+            model.addAttribute("listaPlataformas", plataformasDao.listar());
+            model.addAttribute("listaGeneros", generosDao.listar());
             return "plataformas/editarFrm";
-        }else {
+        } else {
             return "redirect:/plataformas/lista";
         }
-
     }
-*/
     @GetMapping("/nuevo")
     public String nuevaPlataforma(@ModelAttribute("plataforma") Plataformas plataforma){
             return "plataformas/editarFrm";
@@ -64,14 +69,19 @@ public class PlataformasController {
             return "redirect:/plataformas/lista";
         }
     }
-/*
     @GetMapping("/borrar")
-    public String borrarPlataforma(@RequestParam("id") int id){
-        Optional<Plataformas> opt = plataformasRepository.findById(id);
-        if (opt.isPresent()) {
-            plataformasRepository.deleteById(id);
+    public String borrarPlataformas(Model model, @RequestParam("id") int id, RedirectAttributes attr) {
+        System.out.println("entro a borrar");
+
+        Plataformas plataformaBuscar = plataformasDao.buscarPorId(id);
+
+        if (plataformaBuscar != null) {
+            plataformasDao.borrarPlataforma(id);
+            attr.addFlashAttribute("msg", "Plataforma borrada exitosamente");
         }
         return "redirect:/plataformas/lista";
+
     }
-*/
+
+
 }

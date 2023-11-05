@@ -100,7 +100,7 @@ public class JuegosController {
     @GetMapping("/delete")
     public String borrarJuego(Model model, @RequestParam("id") int id, RedirectAttributes attr) {
 
-        juegosDao.deleteProductById(id);
+        juegosDao.borrarProducto(id);
         attr.addFlashAttribute("msg", "Juego borrado exitosamente");
         //}
         return "redirect:/juegos/lista";
@@ -148,18 +148,24 @@ public class JuegosController {
 
 
     }
-/*
-    @GetMapping("/juegos/borrar")
-    public String borrarJuegos(@RequestParam("id") int id){
-        Optional<Juegos> opt = juegosRepository.findById(id);
-        if (opt.isPresent()) {
-            juegosRepository.deleteById(id);
+
+    @GetMapping("/borrar")
+    public String borrarJuegos(Model model, @RequestParam("id") int id, RedirectAttributes attr) {
+        System.out.println("entro a borrar");
+
+        Juegos juegoBuscar = juegosDao.buscarPorId(id);
+
+        if (juegoBuscar != null) {
+            juegosDao.borrarProducto(id);
+            attr.addFlashAttribute("msg", "Juego borrado exitosamente");
         }
         return "redirect:/juegos/lista";
+
     }
 
 
-*/
+
+
 
 
 }

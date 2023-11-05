@@ -73,11 +73,10 @@ public class JuegosDao {
         return juego;
     }
 
-    public void deleteProductById(int id){
-
+    public void borrarProducto(int id) {
         RestTemplate restTemplate = new RestTemplate();
+        restTemplate.delete("http://localhost:8081/api/juegos/lista?id=" + id);
 
-        restTemplate.delete("http://localhost:8081/api/juegos/lista?id="+id);
     }
 
 }
