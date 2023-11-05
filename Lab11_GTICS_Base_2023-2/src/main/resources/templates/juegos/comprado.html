@@ -35,14 +35,15 @@
                     <tbody>
                     <tr th:each="juegos, info : ${listajuegos}">
                         <td th:text="${info.index + 1}"></td>
-                        <td th:text="${juegos.getNombre()}"></td>
-                        <td th:text="${juegos.getDescripcion()}"></td>
-                        <td th:text="${juegos.getGenero().getNombre()}"></td>
-                        <td th:text="${juegos.getPlataforma().getNombre()}"></td>
-                        <td th:text="${juegos.getDistribuidora().getNombre()}"></td>
-                        <td th:text="${juegos.getPrecio()}"></td>
-                        <td><a class="btn btn-primary" th:href="@{'/juegos/edit' + '?id=' + ${juegos.idjuego}}" th:title="Editar" ><span class="bi bi-pencil-square"></span></a></td>
-                        <td><a class="btn btn-danger" th:href="@{'/juegos/delete' + '?id=' + ${juegos.idjuego}}" th:title="Borrar" ><span class="bi bi-trash"></span></a></td>
+                        <td th:text="${juegos.juegos.nombre}"></td>
+                        <td th:text="${juegos.juegos.descripcion}"></td>
+                        <td th:text="${juegos.juegos.genero.nombre}"></td>
+                        <td th:text="${juegos.juegos.plataforma.nombre}"></td>
+                        <td th:text="${juegos.juegos.distribuidora.nombre}"></td>
+                        <td th:text="${juegos.juegos.precio}"></td>
+                        <td><a class="btn btn-primary" th:href="@{'/juegos/edit' + '?id=' + ${juegos.juegos.idjuego}}" th:title="Editar" ><span class="bi bi-pencil-square"></span></a></td>
+                        <td><a class="btn btn-danger" th:href="@{'/juegos/delete' + '?id=' + ${juegos.juegos.idjuego}}" th:title="Borrar" ><span class="bi bi-trash"></span></a></td>
+                        <td><a class="btn btn-danger" th:href="@{'/juegos/ver' + '?id=' + ${juegos.juegos.idjuego}}" th:title="Borrar" ><span class="fa fa-eye"></span></a></td>
 
                     </tr>
                     </tbody>

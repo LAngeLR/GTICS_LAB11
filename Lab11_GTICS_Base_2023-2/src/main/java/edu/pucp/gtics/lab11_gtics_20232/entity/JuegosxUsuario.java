@@ -12,7 +12,6 @@ import javax.validation.constraints.Size;
 
 @Getter
 @Setter
-
 @Entity
 @Table(name = "juegosxusuario")
 public class JuegosxUsuario {
