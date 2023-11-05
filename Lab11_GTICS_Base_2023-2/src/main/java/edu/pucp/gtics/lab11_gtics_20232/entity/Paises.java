@@ -17,7 +17,7 @@ public class Paises {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Min(value = 0, message = "Sede no puede estar vacío")
-    private int idpais;
+    private Integer idpais;
     private String iso;
     private String nombre;
 

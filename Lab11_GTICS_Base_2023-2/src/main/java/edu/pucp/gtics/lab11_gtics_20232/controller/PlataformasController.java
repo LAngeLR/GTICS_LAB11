@@ -42,7 +42,7 @@ public class PlataformasController {
         }
 
     }
-
+*/
     @GetMapping("/nuevo")
     public String nuevaPlataforma(@ModelAttribute("plataforma") Plataformas plataforma){
             return "plataformas/editarFrm";
@@ -55,16 +55,16 @@ public class PlataformasController {
             model.addAttribute("plataforma", plataforma);
             return "plataformas/editarFrm";
         } else {
-            if (plataforma.getIdplataforma() == 0) {
+            if (plataforma.getIdplataforma() == null) {
                 attr.addFlashAttribute("msg", "Plataforma creada exitosamente");
             } else {
                 attr.addFlashAttribute("msg", "Plataforma actualizada exitosamente");
             }
-            plataformasRepository.save(plataforma);
+            plataformasDao.guardar(plataforma);
             return "redirect:/plataformas/lista";
         }
     }
-
+/*
     @GetMapping("/borrar")
     public String borrarPlataforma(@RequestParam("id") int id){
         Optional<Plataformas> opt = plataformasRepository.findById(id);

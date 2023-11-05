@@ -14,7 +14,7 @@ public class Distribuidoras {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Min(value = 0, message = "Distribuidora no puede estar vacío")
-    private int iddistribuidora;
+    private Integer iddistribuidora;
 
     @Size(min=3, max = 50, message = "Debe contener entre 3 y 50 caracteres")
     private String nombre;

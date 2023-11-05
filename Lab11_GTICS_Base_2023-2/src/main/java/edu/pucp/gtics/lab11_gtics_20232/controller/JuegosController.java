@@ -127,7 +127,7 @@ public class JuegosController {
             model.addAttribute("listaGeneros", listaGeneros);
             return "juegos/editarFrm";
         } else {
-            if (juego.getIdjuego() == 0) {
+            if (juego.getIdjuego() == null) {
                 attr.addFlashAttribute("msg", "Juego creado exitosamente");
             } else {
                 attr.addFlashAttribute("msg", "Juego actualizado exitosamente");

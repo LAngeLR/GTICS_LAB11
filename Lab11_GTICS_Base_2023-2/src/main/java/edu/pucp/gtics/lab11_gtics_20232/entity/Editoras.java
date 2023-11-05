@@ -15,7 +15,7 @@ public class Editoras {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ideditora", nullable = false)
-    private int idEditora;
+    private Integer idEditora;
 
     @Column(name = "nombre", length = 50)
     private String nombre;
