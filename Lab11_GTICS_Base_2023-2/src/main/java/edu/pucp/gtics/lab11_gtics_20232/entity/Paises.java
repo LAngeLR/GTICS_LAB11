@@ -21,7 +21,6 @@ public class Paises {
     private String iso;
     private String nombre;
 
-
     public void setIdpais(int idpais) {
         this.idpais = idpais;
     }

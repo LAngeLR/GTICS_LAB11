@@ -2,7 +2,7 @@
 <head th:replace="fragments/base.html :: head(title='Gameshop4 - Bienvenido')"></head>
 <body>
 <div class='container container-app'>
-    <div th:replace="fragments/header.html :: header(option='Juegos')"></div>
+    <div th:replace="fragments/header.html :: header(option='Carrito')"></div>
 
     <div id="content">
         <main>
@@ -12,7 +12,7 @@
             </div>
             <div class="container-fluid">
 
-                <a class="btn btn-success mt-4 mb-4" th:href="..."><span class="bi bi-credit-card"></span> Comprar</a>
+                <a class="btn btn-success mt-4 mb-4" href="#"><span class="bi bi-credit-card"></span> Comprar</a>
                 <div th:if="${msg != null}" class="alert alert-success alert-dismissible fade show" role="alert">
                     <i class="bi bi-check-circle-fill"></i>
                     <span th:text="${msg}"></span>
@@ -27,8 +27,8 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr >
-                        <td><a class="btn btn-danger" th:title="Borrar" th:href=""><span class="bi bi-trash"></span></a></td>
+                    <tr>
+                        <td><a class="btn btn-danger" th:title="Borrar" href="#"><span class="bi bi-trash"></span></a></td>
                     </tr>
                     </tbody>
                 </table>

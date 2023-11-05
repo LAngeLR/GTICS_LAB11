@@ -1,41 +1,43 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/base.html :: head(title='Gameshop4 - Bienvenido')"></head>
-
 <body>
-<div th:replace="fragments/header.html :: header(option='Plataformas')"></div>
-<main>
-    <div class="container">
-        <h1 class="pb-2 mb-4 border-bottom">Lista de Técnicos</h1>
-        <a href="/tecnicos/nuevo" class="btn btn-outline-primary">Nuevo tecnico</a>
+<div class='container container-app'>
 
-        <div th:if="${msg!=null}" th:text="${msg}" class="alert alert-success"></div>
-        <table class="table table-bordered table-striped">
-            <thead>
-            <tr>
-                <th scope="col">Nombre</th>
-                <th scope="col">Apellido</th>
-                <th scope="col">Correo</th>
-                <th scope="col">Rol</th>
-                <th scope="col">Cambiar rol</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="usuario : ${listaUsuarios}">
-                <td th:text="${usuario.nombres}"></td>
-                <td th:text="${usuario.apellidos}"></td>
-                <td th:text="${usuario.correo}"></td>
-                <td th:text="${usuario.autorizacion}"></td>
-                <td>
-                    <a th:if="${usuario.autorizacion == 'ADMIN'}" th:href="@{'/actualizarUsuario?id=' + ${usuario.idusuario}}" class="btn btn-warning">Cambiar a Usuario</a>
-                    <a th:if="${usuario.autorizacion == 'USER'}" th:href="@{'/actualizarUsuario?id=' + ${usuario.idusuario}}" class="btn btn-warning">Cambiar a Administrador</a>
-                </td>
-            </tr>
-            </tbody>
-        </table>
+    <div th:replace="fragments/header.html :: header(option='listaUsuarios')"></div>
+    <main>
+        <div class="container">
+            <h1 class="pb-2 mb-4 border-bottom">Lista de Técnicos</h1>
+            <a href="/tecnicos/nuevo" class="btn btn-outline-primary">Nuevo tecnico</a>
+
+            <div th:if="${msg!=null}" th:text="${msg}" class="alert alert-success"></div>
+            <table class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">Correo</th>
+                    <th scope="col">Rol</th>
+                    <th scope="col">Cambiar rol</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="usuario : ${listaUsuarios}">
+                    <td th:text="${usuario.nombres}"></td>
+                    <td th:text="${usuario.apellidos}"></td>
+                    <td th:text="${usuario.correo}"></td>
+                    <td th:text="${usuario.autorizacion}"></td>
+                    <td>
+                        <a th:if="${usuario.autorizacion == 'ADMIN'}" th:href="@{'/actualizarUsuario?id=' + ${usuario.idusuario}}" class="btn btn-warning">Cambiar a Usuario</a>
+                        <a th:if="${usuario.autorizacion == 'USER'}" th:href="@{'/actualizarUsuario?id=' + ${usuario.idusuario}}" class="btn btn-warning">Cambiar a Administrador</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
 
 
-    </div>
-</main>
+        </div>
+    </main>
+</div>
 </body>
 </html>
