@@ -1,9 +1,10 @@
 package edu.pucp.gtics.lab11_gtics_20232.controller;
 
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-
+@RequestMapping("/carritoCompras")
 public class CarritoController {
 
 
