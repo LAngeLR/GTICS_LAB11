@@ -92,6 +92,7 @@ public class WebSecurityConfig  {
                 .antMatchers("/juegos/**").hasAnyAuthority("ADMIN")
                 .antMatchers("/distribuidora/**").hasAnyAuthority("ADMIN")
                 .antMatchers("/usuarios/**").hasAnyAuthority("ADMIN", "USER")
+                .antMatchers("/carritoCompras/**").hasAnyAuthority("USER")
                 .anyRequest().permitAll();
 
         http.logout()

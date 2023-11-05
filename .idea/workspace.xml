@@ -7,14 +7,8 @@
     <list default="true" id="6a2baff2-aa8b-4127-9157-cef14df6cf68" name="Changes" comment="juan">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Lab11_GTICS_Base_2023-2/src/main/java/edu/pucp/gtics/lab11_gtics_20232/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lab11_GTICS_Base_2023-2/src/main/java/edu/pucp/gtics/lab11_gtics_20232/config/WebSecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab11_GTICS_Base_2023-2/src/main/java/edu/pucp/gtics/lab11_gtics_20232/controller/CarritoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lab11_GTICS_Base_2023-2/src/main/java/edu/pucp/gtics/lab11_gtics_20232/controller/CarritoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab11_GTICS_Base_2023-2/src/main/java/edu/pucp/gtics/lab11_gtics_20232/controller/JuegosController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lab11_GTICS_Base_2023-2/src/main/java/edu/pucp/gtics/lab11_gtics_20232/controller/JuegosController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab11_GTICS_Base_2023-2/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Lab11_GTICS_Base_2023-2/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Lab11_GTICS_Base_2023-2/src/main/resources/templates/distribuidoras/lista.html" beforeDir="false" afterPath="$PROJECT_DIR$/Lab11_GTICS_Base_2023-2/src/main/resources/templates/distribuidoras/lista.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab11_GTICS_Base_2023-2/src/main/resources/templates/fragments/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/Lab11_GTICS_Base_2023-2/src/main/resources/templates/fragments/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab11_GTICS_Base_2023-2/src/main/resources/templates/juegos/lista.html" beforeDir="false" afterPath="$PROJECT_DIR$/Lab11_GTICS_Base_2023-2/src/main/resources/templates/juegos/lista.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Lab11_GTICS_Base_2023-2/src/main/resources/templates/plataformas/lista.html" beforeDir="false" afterPath="$PROJECT_DIR$/Lab11_GTICS_Base_2023-2/src/main/resources/templates/plataformas/lista.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab11_GTICS_Base_2023-2/src/main/resources/templates/user/signIn.html" beforeDir="false" afterPath="$PROJECT_DIR$/Lab11_GTICS_Base_2023-2/src/main/resources/templates/user/signIn.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

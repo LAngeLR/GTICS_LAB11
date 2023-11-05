@@ -24,8 +24,8 @@
                         <th>#</th>
                         <th>Nombre</th>
                         <th>Descripción</th>
-                        <th></th>
-                        <th></th>
+                        <th sec:authorize="hasAnyAuthority('ADMIN')"></th>
+                        <th sec:authorize="hasAnyAuthority('ADMIN')"></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -33,8 +33,8 @@
                         <td th:text="${info.index + 1}"></td>
                         <td th:text="${plataforma.nombre}"></td>
                         <td th:text="${plataforma.descripcion}"></td>
-                        <td><a class="btn btn-primary" th:title="Editar" th:href="@{'/plataformas/editar?id=' + ${plataforma.idplataforma}}"><span class="bi bi-pencil-square"></span></a></td>
-                        <td><a class="btn btn-danger" th:title="Borrar" th:href="@{'/plataformas/borrar?id=' + ${plataforma.idplataforma}}"><span class="bi bi-trash"></span></a></td>
+                        <td sec:authorize="hasAnyAuthority('ADMIN')"><a class="btn btn-primary" th:title="Editar" th:href="@{'/plataformas/editar?id=' + ${plataforma.idplataforma}}"><span class="bi bi-pencil-square"></span></a></td>
+                        <td sec:authorize="hasAnyAuthority('ADMIN')"><a class="btn btn-danger" th:title="Borrar" th:href="@{'/plataformas/borrar?id=' + ${plataforma.idplataforma}}"><span class="bi bi-trash"></span></a></td>
                     </tr>
                     </tbody>
                 </table>
