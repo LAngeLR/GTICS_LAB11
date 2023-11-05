@@ -41,7 +41,7 @@ public class WebSecurityConfig  {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
 
         http.formLogin().loginPage("/login").loginProcessingUrl("/loginProcess")
-                .defaultSuccessUrl("/juegos/lista", true);
+                .defaultSuccessUrl("/juegos", true);
 /*
                 .failureUrl("/login?error=bad_credentials")
                 .and().exceptionHandling().accessDeniedPage("/accessDenied");
