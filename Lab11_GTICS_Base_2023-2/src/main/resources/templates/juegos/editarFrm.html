@@ -8,7 +8,7 @@
         <main>
             <!-- Contenido -->
         <div class="page-header text-center">
-            <h2 th:text="${juego.idjuego == 0? 'Nuevo Juego' : 'Editar Juego'}"></h2>
+            <h2 th:text="${juego.idjuego == null? 'Nuevo Juego' : 'Editar Juego'}"></h2>
         </div>
         <div class="container-fluid">
                 <form method="POST" class="row g-3" th:object="${juego}"  th:action="@{/juegos/guardar}">
@@ -72,7 +72,7 @@
                     <input type="hidden" th:field="*{idjuego}" />
                     <div class="form-group">
                         <a th:href="@{/juegos/lista}" class="btn btn-danger">Cancelar</a>
-                        <button type="submit" class="btn btn-primary" th:text="${juego.idjuego == 0? 'Registrar' : 'Actualizar'}">Reg/act</button>
+                        <button type="submit" class="btn btn-primary" th:text="${juego.idjuego == null? 'Registrar' : 'Actualizar'}">Reg/act</button>
                     </div>
                 </form>
         </div>

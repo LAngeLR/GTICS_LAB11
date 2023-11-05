@@ -66,7 +66,7 @@ public class DistribuidorasController {
             model.addAttribute("listaPaises", listaPaises);
             return "distribuidoras/editarFrm";
         } else {
-            if (distribuidora.getIddistribuidora() == 0) {
+            if (distribuidora.getIddistribuidora() == null) {
                 attr.addFlashAttribute("msg", "Distribuidora creada exitosamente");
             } else {
                 attr.addFlashAttribute("msg", "Distribuidora actualizada exitosamente");

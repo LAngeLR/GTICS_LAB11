@@ -39,7 +39,7 @@ public class DistribuidorasDao {
 
         HttpEntity<Distribuidoras> httpEntity = new HttpEntity<>(distribuidoras,httpHeaders);
 
-        if(distribuidoras.getIddistribuidora() == 0){
+        if(distribuidoras.getIddistribuidora() == null){
             restTemplate.postForEntity(endPoint,httpEntity,Distribuidoras.class);
         }else{
             restTemplate.put(endPoint,httpEntity,Distribuidoras.class);
