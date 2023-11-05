@@ -3,6 +3,7 @@ package edu.pucp.gtics.lab11_gtics_20232.controller;
 
 
 import edu.pucp.gtics.lab11_gtics_20232.dao.DistribuidorasDao;
+import edu.pucp.gtics.lab11_gtics_20232.dao.PaisesDao;
 import edu.pucp.gtics.lab11_gtics_20232.entity.Distribuidoras;
 import edu.pucp.gtics.lab11_gtics_20232.entity.Paises;
 import org.springframework.stereotype.Controller;
@@ -13,7 +14,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
 import java.util.List;
-import java.util.Optional;
 
 @Controller
 @RequestMapping("/distribuidoras")
@@ -21,9 +21,11 @@ import java.util.Optional;
 public class DistribuidorasController {
 
    final DistribuidorasDao distribuidorasDao;
+   final PaisesDao paisesDao;
 
-    public DistribuidorasController(DistribuidorasDao distribuidorasDao) {
+    public DistribuidorasController(DistribuidorasDao distribuidorasDao, PaisesDao paisesDao) {
         this.distribuidorasDao = distribuidorasDao;
+        this.paisesDao = paisesDao;
     }
 
 
@@ -47,11 +49,11 @@ public class DistribuidorasController {
             return "redirect:/distribuidoras/lista";
         }
 
-    }
+    }*/
 
     @GetMapping("/nuevo")
     public String nuevaDistribuidora(Model model, @ModelAttribute("distribuidora") Distribuidoras distribuidora){
-        List<Paises> listaPaises = paisesRepository.findAll();
+        List<Paises> listaPaises = paisesDao.listar();
         model.addAttribute("listaPaises", listaPaises);
         return "distribuidoras/editarFrm";
     }
@@ -59,7 +61,7 @@ public class DistribuidorasController {
     @PostMapping("/guardar")
     public String guardarDistribuidora(Model model, RedirectAttributes attr, @ModelAttribute("distribuidora") @Valid Distribuidoras distribuidora , BindingResult bindingResult){
         if(bindingResult.hasErrors()){
-            List<Paises> listaPaises = paisesRepository.findAll();
+            List<Paises> listaPaises = paisesDao.listar();
             model.addAttribute("distribuidora", distribuidora);
             model.addAttribute("listaPaises", listaPaises);
             return "distribuidoras/editarFrm";
@@ -69,11 +71,11 @@ public class DistribuidorasController {
             } else {
                 attr.addFlashAttribute("msg", "Distribuidora actualizada exitosamente");
             }
-            distribuidorasRepository.save(distribuidora);
+            distribuidorasDao.guardar(distribuidora);
             return "redirect:/distribuidoras/lista";
         }
     }
-
+/*
     @GetMapping("/borrar")
     public String borrarDistribuidora(@RequestParam("id") int id){
         Optional<Distribuidoras> opt = distribuidorasRepository.findById(id);
