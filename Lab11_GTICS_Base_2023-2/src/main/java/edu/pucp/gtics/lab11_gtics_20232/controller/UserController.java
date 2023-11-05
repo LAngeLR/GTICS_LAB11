@@ -22,8 +22,8 @@ public class UserController {
     @Autowired
     private UsuarioDao usuarioDao;
 
-    @GetMapping({"/","/login"})
-    public String login(){return "user/signIn";}
+/*    @GetMapping({"/","/login"})
+    public String login(){return "user/signIn";}*/
 
     @GetMapping(value = "/registro")
     public String registro(@ModelAttribute("usuario") User usuario){return "user/signUp";}

@@ -1,5 +1,7 @@
 package edu.pucp.gtics.lab11_gtics_20232.entity;
 
+import lombok.Getter;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -7,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.validation.constraints.Min;
 
+@Getter
 @Entity
 @Table(name = "paises")
 public class Paises {
@@ -19,24 +22,12 @@ public class Paises {
     private String nombre;
 
 
-    public int getIdpais() {
-        return idpais;
-    }
-
     public void setIdpais(int idpais) {
         this.idpais = idpais;
     }
 
-    public String getIso() {
-        return iso;
-    }
-
     public void setIso(String iso) {
         this.iso = iso;
-    }
-
-    public String getNombre() {
-        return nombre;
     }
 
     public void setNombre(String nombre) {

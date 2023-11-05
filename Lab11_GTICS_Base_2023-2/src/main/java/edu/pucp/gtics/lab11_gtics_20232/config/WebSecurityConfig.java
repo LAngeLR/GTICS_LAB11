@@ -1,3 +1,4 @@
+/*
 package edu.pucp.gtics.lab11_gtics_20232.config;
 
 import org.springframework.context.annotation.Bean;
@@ -42,10 +43,12 @@ public class WebSecurityConfig  {
 
         http.formLogin().loginPage("/login").loginProcessingUrl("/loginProcess")
                 .defaultSuccessUrl("/juegos", true);
+*/
 /*
                 .failureUrl("/login?error=bad_credentials")
                 .and().exceptionHandling().accessDeniedPage("/accessDenied");
-*/
+*//*
+
 
         http.authorizeRequests()
                 .antMatchers("/juegos/**").hasAnyAuthority("ADMIN")
@@ -57,4 +60,4 @@ public class WebSecurityConfig  {
     }
 
 
-}
+}*/

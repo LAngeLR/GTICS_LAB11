@@ -1,9 +1,12 @@
 package edu.pucp.gtics.lab11_gtics_20232.entity;
 
+import lombok.Getter;
+
 import javax.persistence.*;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
 
+@Getter
 @Entity
 @Table(name = "distribuidoras")
 public class Distribuidoras {
@@ -33,47 +36,24 @@ public class Distribuidoras {
     @Valid
     private Paises pais;
 
-    public int getIddistribuidora() {
-        return iddistribuidora;
-    }
-
     public void setIddistribuidora(int iddistribuidora) {
         this.iddistribuidora = iddistribuidora;
-    }
-
-    public String getNombre() {
-        return nombre;
     }
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
-    public String getDescripcion() {
-        return descripcion;
-    }
-
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
-    }
-
-    public String getWeb() {
-        return web;
     }
 
     public void setWeb(String web) {
         this.web = web;
     }
-    public int getFundacion() {
-        return fundacion;
-    }
 
     public void setFundacion(int fundacion) {
         this.fundacion = fundacion;
-    }
-
-    public Paises getPais() {
-        return pais;
     }
 
     public void setPais(Paises pais) {
