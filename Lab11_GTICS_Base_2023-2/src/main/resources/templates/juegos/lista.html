@@ -37,7 +37,7 @@
                         <td th:text="${info.index + 1}"></td>
                         <td th:text="${juegos.getNombre()}"></td>
                         <td th:text="${juegos.getDescripcion()}"></td>
-                        <td th:text="${juegos.getGenero()}"></td>
+                        <td th:text="${juegos.getGenero().getNombre()}"></td>
                         <td th:text="${juegos.getPlataforma().getNombre()}"></td>
                         <td th:text="${juegos.getDistribuidora().getNombre()}"></td>
                         <td th:text="${juegos.getPrecio()}"></td>

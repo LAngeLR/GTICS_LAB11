@@ -1,4 +1,4 @@
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:replace="fragments/base.html :: head(title='Gameshop4 - Bienvenido')"></head>
 <body>
 <div class='container container-app'>
@@ -12,7 +12,7 @@
             </div>
             <div class="container-fluid">
 
-                <a class="btn btn-primary mt-4 mb-4" th:href="@{/distribuidoras/nuevo}"><span class="bi bi-plus-circle"></span> Nueva Distribuidora</a>
+                <a class="btn btn-primary mt-4 mb-4" th:href="@{/distribuidoras/nuevo}" sec:authorize="hasAnyAuthority('ADMIN')"><span class="bi bi-plus-circle"></span> Nueva Distribuidora</a>
                 <div th:if="${msg != null}" class="alert alert-success alert-dismissible fade show" role="alert">
                     <i class="bi bi-check-circle-fill"></i>
                     <span th:text="${msg}"></span>

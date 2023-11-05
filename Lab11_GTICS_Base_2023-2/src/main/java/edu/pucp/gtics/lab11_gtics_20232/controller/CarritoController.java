@@ -34,21 +34,16 @@ public class CarritoController {
     @GetMapping(value = { "","/"})
     public String listaCarrito (Model model, HttpServletRequest request){
 
-/*
         User usuario = (User) request.getSession().getAttribute("usuario");
-*/
-
-        model.addAttribute("listaCarrito", paqueteDao.listarPaquetesporUsuario(/*usuario.getIdusuario()*/1));
+        model.addAttribute("listaCarrito", paqueteDao.listarPaquetesporUsuario(usuario.getIdusuario()));
         return "carrito/lista";
     }
 
     @GetMapping(value = "/anadirACarrito")
     public String anadirACarrito(@RequestParam("idJuego") int idJuego, Model model, RedirectAttributes attr, HttpServletRequest request){
 
-/*
         User usuario = (User) request.getSession().getAttribute("usuario");
-*/
-        CarritoCompras carritoCompras = carritoDao.buscarCarrito(/*usuario.getIdusuario()*/1);
+        CarritoCompras carritoCompras = carritoDao.buscarCarrito(usuario.getIdusuario());
         Juegos juegos = juegosDao.buscarPorId(idJuego);
 
         carritoCompras.setCantidadTotal(carritoCompras.getCantidadTotal()+juegos.getPrecio());

@@ -74,7 +74,7 @@ public class WebSecurityConfig  {
                             rol = role.getAuthority();
                         }
                         if (rol.equals("ADMIN")) {
-                            response.sendRedirect("/juegos");
+                            response.sendRedirect("/juegos/lista");
                         } else if (rol.equals("USER")) {
                             response.sendRedirect("/");
                         } else {
@@ -88,10 +88,18 @@ public class WebSecurityConfig  {
 
 
         http.authorizeRequests()
+                .antMatchers("/juegos/misJuegos").hasAnyAuthority("USER")
                 .antMatchers("/juegos/**").hasAnyAuthority("ADMIN")
                 .antMatchers("/distribuidora/**").hasAnyAuthority("ADMIN")
                 .antMatchers("/usuarios/**").hasAnyAuthority("ADMIN", "USER")
                 .anyRequest().permitAll();
+
+        http.logout()
+                .logoutUrl("/logout")
+                .logoutSuccessUrl("/login")
+                .deleteCookies("JSESSIONID")
+                .invalidateHttpSession(true)
+                .clearAuthentication(true);
 
         return http.build();
     }

@@ -4,10 +4,7 @@ import edu.pucp.gtics.lab11_gtics_20232.dao.DistribuidorasDao;
 import edu.pucp.gtics.lab11_gtics_20232.dao.GenerosDao;
 import edu.pucp.gtics.lab11_gtics_20232.dao.JuegosDao;
 import edu.pucp.gtics.lab11_gtics_20232.dao.PlataformasDao;
-import edu.pucp.gtics.lab11_gtics_20232.entity.Distribuidoras;
-import edu.pucp.gtics.lab11_gtics_20232.entity.Generos;
-import edu.pucp.gtics.lab11_gtics_20232.entity.Juegos;
-import edu.pucp.gtics.lab11_gtics_20232.entity.Plataformas;
+import edu.pucp.gtics.lab11_gtics_20232.entity.*;
 
 
 import org.springframework.stereotype.Controller;
@@ -46,10 +43,8 @@ public class JuegosController {
     @GetMapping(value = "/misJuegos")
     public String listaMisJuegos (Model model, HttpServletRequest request){
 
-/*
         User usuario = (User) request.getSession().getAttribute("usuario");
-*/
-        model.addAttribute("listajuegos", juegosDao.listarMisJuegos(/*usuario.getIdusuario()*/1));
+        model.addAttribute("listajuegos", juegosDao.listarMisJuegos(usuario.getIdusuario()));
         return "juegos/comprado";
     }
 
