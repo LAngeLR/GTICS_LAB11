@@ -3,7 +3,9 @@ package edu.pucp.gtics.lab11_gtics_20232.controller;
 
 
 import edu.pucp.gtics.lab11_gtics_20232.dao.DistribuidorasDao;
+import edu.pucp.gtics.lab11_gtics_20232.dao.GenerosDao;
 import edu.pucp.gtics.lab11_gtics_20232.dao.PaisesDao;
+import edu.pucp.gtics.lab11_gtics_20232.dao.PlataformasDao;
 import edu.pucp.gtics.lab11_gtics_20232.entity.Distribuidoras;
 import edu.pucp.gtics.lab11_gtics_20232.entity.Juegos;
 import edu.pucp.gtics.lab11_gtics_20232.entity.Paises;
@@ -23,10 +25,14 @@ public class DistribuidorasController {
 
    final DistribuidorasDao distribuidorasDao;
    final PaisesDao paisesDao;
+   final GenerosDao generosDao;
+   final PlataformasDao plataformasDao;
 
-    public DistribuidorasController(DistribuidorasDao distribuidorasDao, PaisesDao paisesDao) {
+    public DistribuidorasController(DistribuidorasDao distribuidorasDao, PaisesDao paisesDao, GenerosDao generosDao, PlataformasDao plataformasDao) {
         this.distribuidorasDao = distribuidorasDao;
         this.paisesDao = paisesDao;
+        this.generosDao = generosDao;
+        this.plataformasDao = plataformasDao;
     }
 
 
@@ -36,21 +42,22 @@ public class DistribuidorasController {
         model.addAttribute("listadistribuidoras", distribuidorasDao.listar());
         return "distribuidoras/lista";
     }
-/*
+    
     @GetMapping("/editar")
-    public String editarDistribuidoras(@RequestParam("id") int id, Model model){
-        Optional<Distribuidoras> opt = distribuidorasRepository.findById(id);
-        List<Paises> listaPaises = paisesRepository.findAll();
-        if (opt.isPresent()){
-            Distribuidoras distribuidora = opt.get();
+    public String editarDistribuidora(@ModelAttribute("distribuidora") Distribuidoras distribuidora,
+                              Model model, @RequestParam("id") int id) {
+
+        Distribuidoras distribuidora1 = distribuidorasDao.buscarPorId(id);
+
+        if(distribuidora1 != null) {
+            distribuidora = distribuidora1;
             model.addAttribute("distribuidora", distribuidora);
-            model.addAttribute("listaPaises", listaPaises);
+            model.addAttribute("listaSedes", paisesDao.listar());
             return "distribuidoras/editarFrm";
-        }else {
+        } else {
             return "redirect:/distribuidoras/lista";
         }
-
-    }*/
+    }
 
     @GetMapping("/nuevo")
     public String nuevaDistribuidora(Model model, @ModelAttribute("distribuidora") Distribuidoras distribuidora){
@@ -67,7 +74,7 @@ public class DistribuidorasController {
             List<Paises> listaPaises = paisesDao.listar();
             model.addAttribute("distribuidora", distribuidora);
             model.addAttribute("listaPaises", listaPaises);
-            return "juegos/editarFrm";
+            return "distribuidoras/editarFrm";
         } else {
             if (distribuidora.getIddistribuidora() == null) {
                 attr.addFlashAttribute("msg", "Distribuidora creada exitosamente");
@@ -79,14 +86,17 @@ public class DistribuidorasController {
         }
     }
 
-/*
     @GetMapping("/borrar")
-    public String borrarDistribuidora(@RequestParam("id") int id){
-        Optional<Distribuidoras> opt = distribuidorasRepository.findById(id);
-        if (opt.isPresent()) {
-            distribuidorasRepository.deleteById(id);
+    public String borrarDistribuidoras(Model model, @RequestParam("id") int id, RedirectAttributes attr) {
+        System.out.println("entro a borrar");
+
+        Distribuidoras distribuidoraBuscar = distribuidorasDao.buscarPorId(id);
+
+        if (distribuidoraBuscar != null) {
+            distribuidorasDao.borrarDistribuidora(id);
+            attr.addFlashAttribute("msg", "Producto borrado exitosamente");
         }
-        return "redirect:/distribuidoras/lista";
+        return "redirect:/juegos/lista";
+
     }
-*/
 }

@@ -1,6 +1,6 @@
 package edu.pucp.gtics.lab11_gtics_20232.dao;
 
-import edu.pucp.gtics.lab11_gtics_20232.entity.Juegos;
+import edu.pucp.gtics.lab11_gtics_20232.entity.Plataformas;
 import edu.pucp.gtics.lab11_gtics_20232.entity.Plataformas;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -43,6 +43,26 @@ public class PlataformasDao {
             restTemplate.put(endPoint,httpEntity,Plataformas.class);
         }
 
+    }
+    public Plataformas buscarPorId(int id){
+
+        Plataformas plataforma = null;
+
+        RestTemplate restTemplate = new RestTemplate();
+
+        String url = "http://localhost:8081/api/plataformas/lista?id=" + id;
+
+        ResponseEntity<Plataformas> forEntity = restTemplate.getForEntity(url, Plataformas.class);
+
+        if (forEntity.getStatusCode().is2xxSuccessful()) {
+            plataforma = forEntity.getBody();
+        }
+
+        return plataforma;
+    }
+    public void borrarPlataforma(int id) {
+        RestTemplate restTemplate = new RestTemplate();
+        restTemplate.delete("http://localhost:8081/api/plataformas/lista?id=" + id);
     }
 
 }
