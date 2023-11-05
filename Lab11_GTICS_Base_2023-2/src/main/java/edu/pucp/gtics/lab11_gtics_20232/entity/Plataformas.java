@@ -1,6 +1,7 @@
 package edu.pucp.gtics.lab11_gtics_20232.entity;
 
 import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -11,6 +12,7 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;
 
 @Getter
+@Setter
 @Entity
 @Table(name = "plataformas")
 public class Plataformas {
@@ -26,16 +28,5 @@ public class Plataformas {
     @Size(min=3, max = 198, message = "Debe contener entre 3 y 198 caracteres")
     private String descripcion;
 
-    public void setIdplataforma(int idplataforma) {
-        this.idplataforma = idplataforma;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
 
 }
