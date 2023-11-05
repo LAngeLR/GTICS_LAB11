@@ -1,18 +1,12 @@
 package edu.pucp.gtics.lab11_gtics_20232.controller;
 
+import edu.pucp.gtics.lab11_gtics_20232.dao.*;
+import edu.pucp.gtics.lab11_gtics_20232.entity.*;
 import edu.pucp.gtics.lab11_gtics_20232.repository.PlataformasRepository;
 import edu.pucp.gtics.lab11_gtics_20232.repository.JuegosRepository;
 import edu.pucp.gtics.lab11_gtics_20232.repository.DistribuidorasRepository;
 import edu.pucp.gtics.lab11_gtics_20232.repository.GenerosRepository;
 import edu.pucp.gtics.lab11_gtics_20232.repository.PaisesRepository;
-import edu.pucp.gtics.lab11_gtics_20232.dao.DistribuidorasDao;
-import edu.pucp.gtics.lab11_gtics_20232.dao.GenerosDao;
-import edu.pucp.gtics.lab11_gtics_20232.dao.JuegosDao;
-import edu.pucp.gtics.lab11_gtics_20232.dao.PlataformasDao;
-import edu.pucp.gtics.lab11_gtics_20232.entity.Distribuidoras;
-import edu.pucp.gtics.lab11_gtics_20232.entity.Generos;
-import edu.pucp.gtics.lab11_gtics_20232.entity.Juegos;
-import edu.pucp.gtics.lab11_gtics_20232.entity.Plataformas;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,6 +14,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
@@ -59,6 +54,16 @@ public class JuegosController {
     public String listaJuegos (Model model){
         model.addAttribute("listajuegos", juegosDao.listar());
         return "juegos/lista";
+    }
+
+    @GetMapping(value = "/misJuegos")
+    public String listaMisJuegos (Model model, HttpServletRequest request){
+
+/*
+        User usuario = (User) request.getSession().getAttribute("usuario");
+*/
+        model.addAttribute("listajuegos", juegosDao.listarMisJuegos(/*usuario.getIdusuario()*/1));
+        return "juegos/comprado";
     }
     @PostMapping(value = {"", "/"})
     public String nuevoJuegos(Model model, @ModelAttribute("juego") Juegos juego){
@@ -111,7 +116,7 @@ public class JuegosController {
     }
 
     @GetMapping("/juegos/borrar")
-    public String borrarDistribuidora(@RequestParam("id") int id){
+    public String borrarJuegos(@RequestParam("id") int id){
         Optional<Juegos> opt = juegosRepository.findById(id);
         if (opt.isPresent()) {
             juegosRepository.deleteById(id);

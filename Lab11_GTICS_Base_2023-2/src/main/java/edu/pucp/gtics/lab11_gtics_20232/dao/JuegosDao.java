@@ -20,7 +20,6 @@ public class JuegosDao {
        List<Juegos> lista = new ArrayList<>();
 
 
-
 //       RestTemplate restTemplate = new RestTemplateBuilder().basicAuthentication("elarios@pucp.pe", "prueba").build();
        RestTemplate restTemplate = new RestTemplate();
        String endPoint = "http://localhost:8081/api/juegos/lista";
@@ -30,6 +29,13 @@ public class JuegosDao {
            lista = Arrays.asList(body);
        }
        return lista;
+   }
+
+   public List<Juegos> listarMisJuegos(Integer idUsuario){
+       RestTemplate restTemplate = new RestTemplate();
+       String url = "http://localhost:8081/api/juegos/listaMisJuegos?id="+idUsuario;
+       ResponseEntity<Juegos[]> responseEntity = restTemplate.getForEntity(url, Juegos[].class);
+       return Arrays.asList(responseEntity.getBody());
    }
 
 }

@@ -14,20 +14,27 @@
                 </div>
                 <div class="card-body">
                     <form  method="post" th:action="@{/guardarUsuario}" th:object="${usuario}">
-                        <div class="form-group">
-                            <label for="nombres">Nombre Completo</label>
-                            <input type="text" class="form-control" name="nombres" id="nombres" placeholder="Nombres">
+                        <div class="input-group">
+                            <span class="input-group-text">Nombre Completo</span>
+                            <input type="text" aria-label="nombres" class="form-control" name="nombres" id="nombres" placeholder="Nombres" th:classappend="${#fields.hasErrors('nombres')?'is-invalid':''}">
+                            <input type="text" aria-label="apellidos" class="form-control" name="apellidos" id="apellidos" placeholder="Nombres" th:classappend="${#fields.hasErrors('apellidos')?'is-invalid':''}">
                             <div class="invalid-feedback" th:if="${#fields.hasErrors('nombres')}" th:errors="*{nombres}"></div>
+                            <div class="invalid-feedback" th:if="${#fields.hasErrors('apellidos')}" th:errors="*{apellidos}"></div>
                         </div>
                         <div class="form-group">
                             <label for="correo">Usuario</label>
-                            <input type="email" class="form-control" name="correo" id="correo" placeholder="Correo">
+                            <input type="email" class="form-control" name="correo" id="correo" placeholder="Correo" th:classappend="${#fields.hasErrors('correo')?'is-invalid':''}">
                             <div class="invalid-feedback" th:if="${#fields.hasErrors('correo')}" th:errors="*{correo}"></div>
                         </div>
                         <div class="form-group">
                             <label for="password">Contraseña</label>
-                            <input type="password" class="form-control" name="password" id="password" placeholder="Contraseña">
+                            <input type="password" class="form-control" name="password" id="password" placeholder="Contraseña" th:classappend="${#fields.hasErrors('password')?'is-invalid':''}">
                             <div class="invalid-feedback" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="telefono">Telefono o celular</label>
+                            <input type="number" class="form-control" name="telefono" id="telefono" placeholder="999 999 999" th:classappend="${#fields.hasErrors('telefono')?'is-invalid':''}">
+                            <div class="invalid-feedback" th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}"></div>
                         </div>
                         <button type="submit" class="btn btn-primary btn-block">Registrarse</button>
                     </form>
