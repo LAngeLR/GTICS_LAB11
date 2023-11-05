@@ -1,10 +1,15 @@
 package edu.pucp.gtics.lab11_gtics_20232.entity;
 
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import javax.validation.constraints.Min;
 
 @Entity
+@Getter
+@Setter
 @Table(name = "generos")
 
 public class Generos {
@@ -16,27 +21,4 @@ public class Generos {
     private String nombre;
     private String descripcion;
 
-    public int getIdgenero() {
-        return idgenero;
-    }
-
-    public void setIdgenero(int idgenero) {
-        this.idgenero = idgenero;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
 }
