@@ -25,7 +25,7 @@ public class PlataformasController {
 
     @GetMapping(value = {"/lista"})
     public String listaPlataformas (Model model){
-        model.addAttribute("listajuegos", plataformasDao.listar());
+        model.addAttribute("listaplataformas", plataformasDao.listar());
         return "plataformas/lista";
     }
 /*

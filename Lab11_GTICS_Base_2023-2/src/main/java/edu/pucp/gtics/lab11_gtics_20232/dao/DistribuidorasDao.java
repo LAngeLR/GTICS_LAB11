@@ -32,7 +32,7 @@ public class DistribuidorasDao {
     public void guardar(Distribuidoras distribuidoras){
 
         RestTemplate restTemplate = new RestTemplate();
-        String endPoint = "http://localhost:8081/distribuidora/lista";
+        String endPoint = "http://localhost:8081/api/distribuidora/lista";
 
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.setContentType(MediaType.APPLICATION_JSON);

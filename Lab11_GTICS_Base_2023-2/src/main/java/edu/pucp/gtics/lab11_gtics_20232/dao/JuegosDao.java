@@ -31,12 +31,12 @@ public class JuegosDao {
        return lista;
    }
 
-   public List<JuegosxUsuario> listarMisJuegos(Integer idUsuario){
-       RestTemplate restTemplate = new RestTemplate();
-       String url = "http://localhost:8081/api/juegos/lista?id="+idUsuario;
-       ResponseEntity<JuegosxUsuario[]> responseEntity = restTemplate.getForEntity(url, JuegosxUsuario[].class);
-       return Arrays.asList(responseEntity.getBody());
-   }
+    public List<JuegosxUsuario> listarMisJuegos(Integer idUsuario){
+        RestTemplate restTemplate = new RestTemplate();
+        String url = "http://localhost:8081/api/juegos/listaMisJuegos?id="+idUsuario;
+        ResponseEntity<JuegosxUsuario[]> responseEntity = restTemplate.getForEntity(url, JuegosxUsuario[].class);
+        return Arrays.asList(responseEntity.getBody());
+    }
 
     public void guardar(Juegos juego){
 

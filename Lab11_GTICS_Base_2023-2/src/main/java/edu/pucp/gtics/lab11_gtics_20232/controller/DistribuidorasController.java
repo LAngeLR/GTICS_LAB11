@@ -5,6 +5,7 @@ package edu.pucp.gtics.lab11_gtics_20232.controller;
 import edu.pucp.gtics.lab11_gtics_20232.dao.DistribuidorasDao;
 import edu.pucp.gtics.lab11_gtics_20232.dao.PaisesDao;
 import edu.pucp.gtics.lab11_gtics_20232.entity.Distribuidoras;
+import edu.pucp.gtics.lab11_gtics_20232.entity.Juegos;
 import edu.pucp.gtics.lab11_gtics_20232.entity.Paises;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -59,12 +60,14 @@ public class DistribuidorasController {
     }
 
     @PostMapping("/guardar")
-    public String guardarDistribuidora(Model model, RedirectAttributes attr, @ModelAttribute("distribuidora") @Valid Distribuidoras distribuidora , BindingResult bindingResult){
-        if(bindingResult.hasErrors()){
+    public String guardarDistribuidora(@ModelAttribute("distribuidora") @Valid Distribuidoras distribuidora, BindingResult bindingResult,
+                                  Model model, RedirectAttributes attr) {
+
+        if (bindingResult.hasErrors()) {
             List<Paises> listaPaises = paisesDao.listar();
             model.addAttribute("distribuidora", distribuidora);
             model.addAttribute("listaPaises", listaPaises);
-            return "distribuidoras/editarFrm";
+            return "juegos/editarFrm";
         } else {
             if (distribuidora.getIddistribuidora() == null) {
                 attr.addFlashAttribute("msg", "Distribuidora creada exitosamente");
@@ -75,6 +78,7 @@ public class DistribuidorasController {
             return "redirect:/distribuidoras/lista";
         }
     }
+
 /*
     @GetMapping("/borrar")
     public String borrarDistribuidora(@RequestParam("id") int id){
