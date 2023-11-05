@@ -5,12 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6a2baff2-aa8b-4127-9157-cef14df6cf68" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab11_GTICS_Base_2023-2/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Lab11_GTICS_Base_2023-2/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab11_GTICS_Base_2023-2/src/main/java/edu/pucp/gtics/lab11_gtics_20232/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lab11_GTICS_Base_2023-2/src/main/java/edu/pucp/gtics/lab11_gtics_20232/config/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab11_GTICS_Base_2023-2/src/main/java/edu/pucp/gtics/lab11_gtics_20232/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lab11_GTICS_Base_2023-2/src/main/java/edu/pucp/gtics/lab11_gtics_20232/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Lab11_GTICS_Base_2023-2/src/main/java/edu/pucp/gtics/lab11_gtics_20232/dao/JuegosDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lab11_GTICS_Base_2023-2/src/main/java/edu/pucp/gtics/lab11_gtics_20232/dao/JuegosDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab11_GTICS_Base_2023-2/src/main/java/edu/pucp/gtics/lab11_gtics_20232/entity/Distribuidoras.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lab11_GTICS_Base_2023-2/src/main/java/edu/pucp/gtics/lab11_gtics_20232/entity/Distribuidoras.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab11_GTICS_Base_2023-2/src/main/java/edu/pucp/gtics/lab11_gtics_20232/entity/Juegos.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lab11_GTICS_Base_2023-2/src/main/java/edu/pucp/gtics/lab11_gtics_20232/entity/Juegos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab11_GTICS_Base_2023-2/src/main/java/edu/pucp/gtics/lab11_gtics_20232/entity/Paises.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lab11_GTICS_Base_2023-2/src/main/java/edu/pucp/gtics/lab11_gtics_20232/entity/Paises.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab11_GTICS_Base_2023-2/src/main/java/edu/pucp/gtics/lab11_gtics_20232/entity/Plataformas.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lab11_GTICS_Base_2023-2/src/main/java/edu/pucp/gtics/lab11_gtics_20232/entity/Plataformas.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

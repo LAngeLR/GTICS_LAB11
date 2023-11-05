@@ -21,7 +21,8 @@ public class JuegosDao {
 
 
 
-       RestTemplate restTemplate = new RestTemplateBuilder().basicAuthentication("elarios@pucp.pe", "prueba").build();
+//       RestTemplate restTemplate = new RestTemplateBuilder().basicAuthentication("elarios@pucp.pe", "prueba").build();
+       RestTemplate restTemplate = new RestTemplate();
        String endPoint = "http://localhost:8081/api/juegos/lista";
        ResponseEntity<Juegos[]> responseEntity = restTemplate.getForEntity(endPoint,Juegos[].class);
        if (responseEntity.getStatusCode().is2xxSuccessful()) {
