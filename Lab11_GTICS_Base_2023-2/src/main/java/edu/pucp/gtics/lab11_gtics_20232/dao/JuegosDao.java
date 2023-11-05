@@ -20,8 +20,7 @@ public class JuegosDao {
    public List<Juegos> listar(){
        List<Juegos> lista = new ArrayList<>();
 
-//       RestTemplate restTemplate = new RestTemplateBuilder().basicAuthentication("elarios@pucp.pe", "prueba").build();
-       RestTemplate restTemplate = new RestTemplate();
+       RestTemplate restTemplate = new RestTemplateBuilder().basicAuthentication("elarios@pucp.pe", "prueba").build();
        String endPoint = "http://localhost:8081/api/juegos/lista";
        ResponseEntity<Juegos[]> responseEntity = restTemplate.getForEntity(endPoint,Juegos[].class);
        if (responseEntity.getStatusCode().is2xxSuccessful()) {
@@ -32,7 +31,8 @@ public class JuegosDao {
    }
 
     public List<JuegosxUsuario> listarMisJuegos(Integer idUsuario){
-        RestTemplate restTemplate = new RestTemplate();
+        RestTemplate restTemplate = new RestTemplateBuilder().basicAuthentication("elarios@pucp.pe", "prueba").build();
+
         String url = "http://localhost:8081/api/juegos/listaMisJuegos?id="+idUsuario;
         ResponseEntity<JuegosxUsuario[]> responseEntity = restTemplate.getForEntity(url, JuegosxUsuario[].class);
         return Arrays.asList(responseEntity.getBody());
@@ -40,7 +40,7 @@ public class JuegosDao {
 
     public void guardar(Juegos juego){
 
-        RestTemplate restTemplate = new RestTemplate();
+        RestTemplate restTemplate = new RestTemplateBuilder().basicAuthentication("elarios@pucp.pe", "prueba").build();
         String endPoint = "http://localhost:8081/api/juegos/lista";
 
         HttpHeaders httpHeaders = new HttpHeaders();
@@ -60,8 +60,7 @@ public class JuegosDao {
 
         Juegos juego = null;
 
-        RestTemplate restTemplate = new RestTemplate();
-
+        RestTemplate restTemplate = new RestTemplateBuilder().basicAuthentication("elarios@pucp.pe", "prueba").build();
         String url = "http://localhost:8081/api/juegos/lista?id=" + id;
 
         ResponseEntity<Juegos> forEntity = restTemplate.getForEntity(url, Juegos.class);
@@ -74,7 +73,7 @@ public class JuegosDao {
     }
 
     public void borrarProducto(int id) {
-        RestTemplate restTemplate = new RestTemplate();
+        RestTemplate restTemplate = new RestTemplateBuilder().basicAuthentication("elarios@pucp.pe", "prueba").build();
         restTemplate.delete("http://localhost:8081/api/juegos/lista?id=" + id);
 
     }

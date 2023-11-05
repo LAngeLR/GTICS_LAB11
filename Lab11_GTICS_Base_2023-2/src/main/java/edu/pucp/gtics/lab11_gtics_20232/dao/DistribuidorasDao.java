@@ -22,7 +22,7 @@ public class DistribuidorasDao {
     public List<Distribuidoras> listar(){
         List<Distribuidoras> lista = new ArrayList<>();
 
-        RestTemplate restTemplate = new RestTemplate();
+        RestTemplate restTemplate = new RestTemplateBuilder().basicAuthentication("elarios@pucp.pe", "prueba").build();
         String endPoint = "http://localhost:8081/api/distribuidora/lista";
         ResponseEntity<Distribuidoras[]> responseEntity = restTemplate.getForEntity(endPoint,Distribuidoras[].class);
         if (responseEntity.getStatusCode().is2xxSuccessful()) {
@@ -34,7 +34,7 @@ public class DistribuidorasDao {
 
     public void guardar(Distribuidoras distribuidoras){
 
-        RestTemplate restTemplate = new RestTemplate();
+        RestTemplate restTemplate = new RestTemplateBuilder().basicAuthentication("elarios@pucp.pe", "prueba").build();
         String endPoint = "http://localhost:8081/api/distribuidora/lista";
 
         HttpHeaders httpHeaders = new HttpHeaders();
@@ -54,7 +54,7 @@ public class DistribuidorasDao {
 
         Distribuidoras distribuidora = null;
 
-        RestTemplate restTemplate = new RestTemplate();
+        RestTemplate restTemplate = new RestTemplateBuilder().basicAuthentication("elarios@pucp.pe", "prueba").build();
 
         String url = "http://localhost:8081/api/distribuidora/lista?id=" + id;
 
@@ -68,7 +68,7 @@ public class DistribuidorasDao {
     }
 
     public void borrarDistribuidora(int id) {
-        RestTemplate restTemplate = new RestTemplate();
+        RestTemplate restTemplate = new RestTemplateBuilder().basicAuthentication("elarios@pucp.pe", "prueba").build();
         restTemplate.delete("http://localhost:8081/api/distribuidora/lista?id=" + id);
     }
 

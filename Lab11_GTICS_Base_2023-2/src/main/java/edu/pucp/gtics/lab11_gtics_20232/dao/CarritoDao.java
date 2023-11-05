@@ -23,7 +23,7 @@ public class CarritoDao {
         String url = "http://localhost:8081/api/carrito/registro";
         HttpEntity<CarritoCompras> httpEntity = new HttpEntity<>(carrito, headers);
 
-        RestTemplate restTemplate = new RestTemplate();
+        RestTemplate restTemplate = new RestTemplateBuilder().basicAuthentication("elarios@pucp.pe", "prueba").build();
         if(carrito.getIdcarritocompras() > 0){
             restTemplate.put(url, httpEntity, User.class);
         } else {
@@ -32,7 +32,7 @@ public class CarritoDao {
     }
 
     public CarritoCompras buscarCarrito(Integer idUsuario){
-        RestTemplate restTemplate = new RestTemplate();
+        RestTemplate restTemplate = new RestTemplateBuilder().basicAuthentication("elarios@pucp.pe", "prueba").build();
         String url = "http://localhost:8081/api/carrito/buscarCarrito?id="+idUsuario;
         return restTemplate.getForObject(url, CarritoCompras.class);
     }
@@ -45,7 +45,7 @@ public class CarritoDao {
         String url = "http://localhost:8081/api/carrito/actualizar";
         HttpEntity<CarritoCompras> httpEntity = new HttpEntity<>(carritoCompras, headers);
 
-        RestTemplate restTemplate = new RestTemplate();
+        RestTemplate restTemplate = new RestTemplateBuilder().basicAuthentication("elarios@pucp.pe", "prueba").build();
         restTemplate.put(url, httpEntity, User.class);
     }
 }

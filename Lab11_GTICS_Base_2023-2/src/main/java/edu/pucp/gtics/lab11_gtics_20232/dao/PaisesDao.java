@@ -18,7 +18,7 @@ import java.util.List;
 public class PaisesDao {
     public List<Paises> listar(){
         List<Paises> lista = new ArrayList<>();
-        RestTemplate restTemplate = new RestTemplate();
+        RestTemplate restTemplate = new RestTemplateBuilder().basicAuthentication("elarios@pucp.pe", "prueba").build();
         String endPoint = "http://localhost:8081/api/paises/lista";
         ResponseEntity<Paises[]> responseEntity = restTemplate.getForEntity(endPoint,Paises[].class);
         if (responseEntity.getStatusCode().is2xxSuccessful()) {

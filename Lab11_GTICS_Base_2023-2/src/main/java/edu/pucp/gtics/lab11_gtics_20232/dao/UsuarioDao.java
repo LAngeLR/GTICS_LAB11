@@ -16,7 +16,7 @@ public class UsuarioDao {
 
     public List<User> listarUsuarios(){
 
-        RestTemplate restTemplate = new RestTemplate();
+        RestTemplate restTemplate = new RestTemplateBuilder().basicAuthentication("elarios@pucp.pe", "prueba").build();
         String url = "http://localhost:8081/api/usuarios/listaUsuarios";
         ResponseEntity<User[]> responseEntity = restTemplate.getForEntity(url, User[].class);
 
@@ -30,7 +30,7 @@ public class UsuarioDao {
         String url = "http://localhost:8081/api/usuarios/registro";
         HttpEntity<User> httpEntity = new HttpEntity<>(usuario, headers);
 
-        RestTemplate restTemplate = new RestTemplate();
+        RestTemplate restTemplate = new RestTemplateBuilder().basicAuthentication("elarios@pucp.pe", "prueba").build();
         if(usuario.getIdusuario() > 0){
             restTemplate.put(url, httpEntity, User.class);
         } else {
@@ -40,8 +40,15 @@ public class UsuarioDao {
     }
 
     public User obtenerUsuario(Integer idUsuario){
-        RestTemplate restTemplate = new RestTemplate();
+        RestTemplate restTemplate = new RestTemplateBuilder().basicAuthentication("elarios@pucp.pe", "prueba").build();
         String url = "http://localhost:8081/api/usuarios/buscarUsuario?id="+idUsuario;
+        ResponseEntity<User> responseEntity = restTemplate.getForEntity(url, User.class);
+        return responseEntity.getBody();
+    }
+
+    public User obtenerUsuarioPorCorreo(String correo){
+        RestTemplate restTemplate = new RestTemplateBuilder().basicAuthentication("elarios@pucp.pe", "prueba").build();
+        String url = "http://localhost:8081/api/usuarios/buscarUsuarioPorCorreo?correo="+correo;
         ResponseEntity<User> responseEntity = restTemplate.getForEntity(url, User.class);
         return responseEntity.getBody();
     }

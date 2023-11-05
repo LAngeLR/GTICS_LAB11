@@ -16,7 +16,7 @@ public class GenerosDao {
     public List<Generos> listar(){
         List<Generos> lista = new ArrayList<>();
 
-        RestTemplate restTemplate = new RestTemplate();
+        RestTemplate restTemplate = new RestTemplateBuilder().basicAuthentication("elarios@pucp.pe", "prueba").build();
         String endPoint = "http://localhost:8081/api/generos/lista";
         ResponseEntity<Generos[]> responseEntity = restTemplate.getForEntity(endPoint,Generos[].class);
         if (responseEntity.getStatusCode().is2xxSuccessful()) {

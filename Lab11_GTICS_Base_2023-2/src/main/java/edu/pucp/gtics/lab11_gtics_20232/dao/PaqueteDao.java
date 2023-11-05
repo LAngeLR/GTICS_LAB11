@@ -16,14 +16,14 @@ import java.util.List;
 public class PaqueteDao {
 
     public PaqueteJuegos buscarPaquete(Integer idCarrito, Integer idJuego){
-        RestTemplate restTemplate = new RestTemplate();
+        RestTemplate restTemplate = new RestTemplateBuilder().basicAuthentication("elarios@pucp.pe", "prueba").build();
         String url = "http://localhost:8081/api/paquetes/buscarPaquete?idCarrito="+idCarrito+"&idJuego="+idJuego;
         return restTemplate.getForObject(url, PaqueteJuegos.class);
 
     }
 
     public void eliminarPaquete(Integer idCarrito, Integer idJuego){
-        RestTemplate restTemplate = new RestTemplate();
+        RestTemplate restTemplate = new RestTemplateBuilder().basicAuthentication("elarios@pucp.pe", "prueba").build();
         String url = "http://localhost:8081/api/paquetes/eliminarPaquete?idCarrito="+idCarrito+"&idJuego="+idJuego;
         restTemplate.delete(url);
     }
@@ -37,7 +37,7 @@ public class PaqueteDao {
         String url = "http://localhost:8081/api/paquetes/registro";
         HttpEntity<PaqueteJuegos> httpEntity = new HttpEntity<>(paqueteJuegos, headers);
 
-        RestTemplate restTemplate = new RestTemplate();
+        RestTemplate restTemplate = new RestTemplateBuilder().basicAuthentication("elarios@pucp.pe", "prueba").build();
 
         if(paqueteDao.buscarPaquete(paqueteJuegos.getId().getCarritoCompras().getIdcarritocompras(),
                 paqueteJuegos.getId().getJuegos().getIdjuego()) != null){
@@ -50,7 +50,7 @@ public class PaqueteDao {
     }
 
     public List<PaqueteJuegos> listarPaquetesporUsuario(Integer idUsuario){
-        RestTemplate restTemplate = new RestTemplate();
+        RestTemplate restTemplate = new RestTemplateBuilder().basicAuthentication("elarios@pucp.pe", "prueba").build();
         String url = "http://localhost:8081/api/paquetes/lista?idUsuario="+idUsuario;
         ResponseEntity<PaqueteJuegos[]> responseEntity = restTemplate.getForEntity(url, PaqueteJuegos[].class);
 

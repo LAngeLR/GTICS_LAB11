@@ -9,6 +9,8 @@ import edu.pucp.gtics.lab11_gtics_20232.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 /*import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;*/
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -29,13 +31,11 @@ public class UserController {
     @Autowired
     private JuegosDao juegosDao;
 
-/*
     final PasswordEncoder passwordEncoder;
 
     public UserController() {
         this.passwordEncoder = new BCryptPasswordEncoder();
     }
-*/
 
     @GetMapping(value = {"/",""})
     public String index(Model model){
@@ -63,7 +63,7 @@ public class UserController {
         } else {
             usuario.setEnable(1);
             usuario.setAutorizacion("USER");
-//            usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
+            usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
 
             CarritoCompras carritoCompras = new CarritoCompras();
             carritoCompras.setIdcarritocompras(usuario.getIdusuario());

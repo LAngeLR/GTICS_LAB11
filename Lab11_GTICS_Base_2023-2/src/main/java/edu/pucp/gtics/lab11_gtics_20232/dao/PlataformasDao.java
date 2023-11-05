@@ -18,7 +18,7 @@ public class PlataformasDao {
     public List<Plataformas> listar(){
         List<Plataformas> lista = new ArrayList<>();
 
-        RestTemplate restTemplate = new RestTemplate();
+        RestTemplate restTemplate = new RestTemplateBuilder().basicAuthentication("elarios@pucp.pe", "prueba").build();
         String endPoint = "http://localhost:8081/api/plataformas/lista";
         ResponseEntity<Plataformas[]> responseEntity = restTemplate.getForEntity(endPoint,Plataformas[].class);
         if (responseEntity.getStatusCode().is2xxSuccessful()) {
@@ -29,7 +29,7 @@ public class PlataformasDao {
     }
     public void guardar(Plataformas plataforma){
 
-        RestTemplate restTemplate = new RestTemplate();
+        RestTemplate restTemplate = new RestTemplateBuilder().basicAuthentication("elarios@pucp.pe", "prueba").build();
         String endPoint = "http://localhost:8081/api/plataformas/lista";
 
         HttpHeaders httpHeaders = new HttpHeaders();
@@ -48,7 +48,7 @@ public class PlataformasDao {
 
         Plataformas plataforma = null;
 
-        RestTemplate restTemplate = new RestTemplate();
+        RestTemplate restTemplate = new RestTemplateBuilder().basicAuthentication("elarios@pucp.pe", "prueba").build();
 
         String url = "http://localhost:8081/api/plataformas/lista?id=" + id;
 
@@ -61,7 +61,7 @@ public class PlataformasDao {
         return plataforma;
     }
     public void borrarPlataforma(int id) {
-        RestTemplate restTemplate = new RestTemplate();
+        RestTemplate restTemplate = new RestTemplateBuilder().basicAuthentication("elarios@pucp.pe", "prueba").build();
         restTemplate.delete("http://localhost:8081/api/plataformas/lista?id=" + id);
     }
 
