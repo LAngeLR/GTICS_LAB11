@@ -88,7 +88,6 @@ public class DistribuidorasController {
 
     @GetMapping("/borrar")
     public String borrarDistribuidoras(Model model, @RequestParam("id") int id, RedirectAttributes attr) {
-        System.out.println("entro a borrar");
 
         Distribuidoras distribuidoraBuscar = distribuidorasDao.buscarPorId(id);
 
