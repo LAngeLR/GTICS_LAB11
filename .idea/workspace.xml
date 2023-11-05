@@ -6,10 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="825f15a9-e40a-45eb-b217-c76c24bf06de" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab11_GTICS_Base_2023-2/src/main/java/edu/pucp/gtics/lab11_gtics_20232/entity/Distribuidoras.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lab11_GTICS_Base_2023-2/src/main/java/edu/pucp/gtics/lab11_gtics_20232/entity/Distribuidoras.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab11_GTICS_Base_2023-2/src/main/java/edu/pucp/gtics/lab11_gtics_20232/entity/Generos.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lab11_GTICS_Base_2023-2/src/main/java/edu/pucp/gtics/lab11_gtics_20232/entity/Generos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab11_GTICS_Base_2023-2/src/main/java/edu/pucp/gtics/lab11_gtics_20232/entity/Paises.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lab11_GTICS_Base_2023-2/src/main/java/edu/pucp/gtics/lab11_gtics_20232/entity/Paises.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab11_GTICS_Base_2023-2/src/main/java/edu/pucp/gtics/lab11_gtics_20232/entity/Plataformas.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lab11_GTICS_Base_2023-2/src/main/java/edu/pucp/gtics/lab11_gtics_20232/entity/Plataformas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab11_GTICS_Base_2023-2/src/main/java/edu/pucp/gtics/lab11_gtics_20232/controller/JuegosController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lab11_GTICS_Base_2023-2/src/main/java/edu/pucp/gtics/lab11_gtics_20232/controller/JuegosController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab11_GTICS_Base_2023-2/src/main/java/edu/pucp/gtics/lab11_gtics_20232/dao/JuegosDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lab11_GTICS_Base_2023-2/src/main/java/edu/pucp/gtics/lab11_gtics_20232/dao/JuegosDao.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

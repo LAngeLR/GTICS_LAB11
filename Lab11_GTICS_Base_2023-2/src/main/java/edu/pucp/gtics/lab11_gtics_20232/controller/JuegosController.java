@@ -96,6 +96,16 @@ public class JuegosController {
             return "redirect:/juegos/lista";
         }
     }
+
+    @GetMapping("/delete")
+    public String borrarJuego(Model model, @RequestParam("id") int id, RedirectAttributes attr) {
+
+        juegosDao.deleteProductById(id);
+        attr.addFlashAttribute("msg", "Juego borrado exitosamente");
+        //}
+        return "redirect:/juegos/lista";
+
+    }
 /*
     @PutMapping(value = {"", "/"})
     public String editarJuegos(@RequestParam("id") int id, Model model){
