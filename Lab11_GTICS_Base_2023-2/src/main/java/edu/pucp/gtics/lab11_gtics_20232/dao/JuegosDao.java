@@ -13,12 +13,9 @@ import java.util.Arrays;
 import java.util.List;
 
 @Component
-
-
 public class JuegosDao {
    public List<Juegos> listar(){
        List<Juegos> lista = new ArrayList<>();
-
 
 //       RestTemplate restTemplate = new RestTemplateBuilder().basicAuthentication("elarios@pucp.pe", "prueba").build();
        RestTemplate restTemplate = new RestTemplate();

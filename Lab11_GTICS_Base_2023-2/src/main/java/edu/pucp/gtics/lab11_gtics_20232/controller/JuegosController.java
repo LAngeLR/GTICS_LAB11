@@ -1,12 +1,14 @@
 package edu.pucp.gtics.lab11_gtics_20232.controller;
 
-import edu.pucp.gtics.lab11_gtics_20232.dao.*;
-import edu.pucp.gtics.lab11_gtics_20232.entity.*;
-import edu.pucp.gtics.lab11_gtics_20232.repository.PlataformasRepository;
-import edu.pucp.gtics.lab11_gtics_20232.repository.JuegosRepository;
-import edu.pucp.gtics.lab11_gtics_20232.repository.DistribuidorasRepository;
-import edu.pucp.gtics.lab11_gtics_20232.repository.GenerosRepository;
-import edu.pucp.gtics.lab11_gtics_20232.repository.PaisesRepository;
+import edu.pucp.gtics.lab11_gtics_20232.dao.DistribuidorasDao;
+import edu.pucp.gtics.lab11_gtics_20232.dao.GenerosDao;
+import edu.pucp.gtics.lab11_gtics_20232.dao.JuegosDao;
+import edu.pucp.gtics.lab11_gtics_20232.dao.PlataformasDao;
+import edu.pucp.gtics.lab11_gtics_20232.entity.Distribuidoras;
+import edu.pucp.gtics.lab11_gtics_20232.entity.Generos;
+import edu.pucp.gtics.lab11_gtics_20232.entity.Juegos;
+import edu.pucp.gtics.lab11_gtics_20232.entity.Plataformas;
+
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,29 +30,14 @@ public class JuegosController {
    final DistribuidorasDao distribuidorasDao;
    final GenerosDao generosDao;
 
-    final DistribuidorasRepository distribuidorasRepository;
-
-    final PaisesRepository paisesRepository;
-
-    final GenerosRepository generosRepository;
-
-    final PlataformasRepository plataformasRepository;
-
-    final JuegosRepository juegosRepository;
-
-    public JuegosController(JuegosDao juegosDao, PlataformasDao plataformasDao, DistribuidorasDao distribuidorasDao, GenerosDao generosDao, DistribuidorasRepository distribuidorasRepository, PaisesRepository paisesRepository, GenerosRepository generosRepository, PlataformasRepository plataformasRepository, JuegosRepository juegosRepository) {
+    public JuegosController(JuegosDao juegosDao, PlataformasDao plataformasDao, DistribuidorasDao distribuidorasDao, GenerosDao generosDao) {
         this.juegosDao = juegosDao;
         this.plataformasDao = plataformasDao;
         this.distribuidorasDao = distribuidorasDao;
         this.generosDao = generosDao;
-        this.distribuidorasRepository = distribuidorasRepository;
-        this.paisesRepository = paisesRepository;
-        this.generosRepository = generosRepository;
-        this.plataformasRepository = plataformasRepository;
-        this.juegosRepository = juegosRepository;
     }
 
-    @GetMapping(value = {"", "/"})
+    @GetMapping(value = { "/lista"})
     public String listaJuegos (Model model){
         model.addAttribute("listajuegos", juegosDao.listar());
         return "juegos/lista";
@@ -65,14 +52,15 @@ public class JuegosController {
         model.addAttribute("listajuegos", juegosDao.listarMisJuegos(/*usuario.getIdusuario()*/1));
         return "juegos/comprado";
     }
-    @PostMapping(value = {"", "/"})
+
+    @PostMapping(value = { "/nuevo"})
     public String nuevoJuegos(Model model, @ModelAttribute("juego") Juegos juego){
         model.addAttribute("listaPlataformas", plataformasDao.listar());
         model.addAttribute("listaDistribuidoras", distribuidorasDao.listar());
         model.addAttribute("listaGeneros", generosDao.listar());
         return "juegos/editarFrm";
     }
-
+/*
     @PutMapping(value = {"", "/"})
     public String editarJuegos(@RequestParam("id") int id, Model model){
         Optional<Juegos> opt = juegosRepository.findById(id);
@@ -125,7 +113,7 @@ public class JuegosController {
     }
 
 
-
+*/
 
 
 }
