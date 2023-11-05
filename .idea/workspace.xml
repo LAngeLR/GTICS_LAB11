@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6a2baff2-aa8b-4127-9157-cef14df6cf68" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Lab11_GTICS_Base_2023-2/src/main/java/edu/pucp/gtics/lab11_gtics_20232/dao/DistribuidorasDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lab11_GTICS_Base_2023-2/src/main/java/edu/pucp/gtics/lab11_gtics_20232/dao/DistribuidorasDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab11_GTICS_Base_2023-2/src/main/java/edu/pucp/gtics/lab11_gtics_20232/dao/GenerosDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lab11_GTICS_Base_2023-2/src/main/java/edu/pucp/gtics/lab11_gtics_20232/dao/GenerosDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab11_GTICS_Base_2023-2/src/main/java/edu/pucp/gtics/lab11_gtics_20232/dao/PlataformasDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lab11_GTICS_Base_2023-2/src/main/java/edu/pucp/gtics/lab11_gtics_20232/dao/PlataformasDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab11_GTICS_Base_2023-2/src/main/resources/templates/fragments/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/Lab11_GTICS_Base_2023-2/src/main/resources/templates/fragments/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab11_GTICS_Base_2023-2/src/main/resources/templates/juegos/lista.html" beforeDir="false" afterPath="$PROJECT_DIR$/Lab11_GTICS_Base_2023-2/src/main/resources/templates/juegos/lista.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +82,7 @@
       <workItem from="1699074928283" duration="8906000" />
       <workItem from="1699138072329" duration="1997000" />
       <workItem from="1699143996361" duration="1264000" />
-      <workItem from="1699159164194" duration="9368000" />
+      <workItem from="1699159164194" duration="10179000" />
     </task>
     <servers />
   </component>

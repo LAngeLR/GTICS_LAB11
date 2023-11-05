@@ -35,8 +35,9 @@
                         <td th:text="${info.index + 1}"></td>
                         <td th:text="${juegos.getNombre()}"></td>
                         <td th:text="${juegos.getDescripcion()}"></td>
-                        <td th:text="${juegos.getPlataforma()}"></td>
-                        <td th:text="${juegos.getDistribuidora()}"></td>
+                        <td th:text="${juegos.getGenero().getNombre()}"></td>
+                        <td th:text="${juegos.getPlataforma().getNombre()}"></td>
+                        <td th:text="${juegos.getDistribuidora().getNombre()}"></td>
                         <td th:text="${juegos.getPrecio()}"></td>
                         <td><a class="btn btn-primary" th:href="@{'/juegos/edit' + '?id=' + ${juegos.idjuego}}" th:title="Editar" ><span class="bi bi-pencil-square"></span></a></td>
                         <td><a class="btn btn-danger" th:href="@{'/juegos/delete' + '?id=' + ${juegos.idjuego}}" th:title="Borrar" ><span class="bi bi-trash"></span></a></td>
