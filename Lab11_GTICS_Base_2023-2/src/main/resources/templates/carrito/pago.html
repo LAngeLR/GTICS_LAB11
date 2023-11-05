@@ -1,0 +1,49 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/base.html :: head(title='Gameshop4 - Bienvenido')"></head>
+<body>
+<div class='container container-app'>
+
+  <div th:replace="fragments/header.html :: header(option='Vista')"></div>
+
+  <div id="content">
+    <main>
+      <!-- Contenido -->
+      <div class="container-fluid">
+
+        <div class="page-header text-center">
+          <h1>Medios de pago</h1>
+        </div>
+        <div class="container-fluid">
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 card-app justify-content-center" >
+            <div class="col mb-4">
+              <div class="card" >
+                <img class="card-img-top" alt="Card image cap" th:src="@{/img/yape.jpeg}">
+                <a class="btn btn-primary" th:title="Seleccionar"><span class="bi bi-check-circle-fill"></span>Seleccionar</a>
+                <div class="card-body">
+                  <h5 class="card-title">Pago con yape</h5>
+                  <p>Utiliza tu teléfono registrado</p>
+                </div>
+              </div>
+            </div>
+            <div class="col mb-4">
+              <div class="card" >
+                <img class="card-img-top" alt="Card image cap" th:src="@{/img/visa.png}">
+                <a class="btn btn-primary" th:title="Seleccionar"><span class="bi bi-check-circle-fill"></span>Seleccionar</a>
+                <div class="card-body">
+                  <h5 class="card-title">Pago con cuenta bancaria</h5>
+                    <p>Utiliza tu número de cuenta</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- /Contenido -->
+    </main>
+    <div th:replace="fragments/footer.html :: footer(year='2022')"></div>
+  </div>
+</div>
+<div th:replace="fragments/base.html :: jsScripts"></div>
+</body>
+</html>
