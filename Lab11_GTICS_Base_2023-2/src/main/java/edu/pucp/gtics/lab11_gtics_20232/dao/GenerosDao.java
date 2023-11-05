@@ -17,7 +17,7 @@ public class GenerosDao {
         List<Generos> lista = new ArrayList<>();
 
         RestTemplate restTemplate = new RestTemplate();
-        String endPoint = "http://localhost:8080/generos";
+        String endPoint = "http://localhost:8081/api/generos/lista";
         ResponseEntity<Generos[]> responseEntity = restTemplate.getForEntity(endPoint,Generos[].class);
         if (responseEntity.getStatusCode().is2xxSuccessful()) {
             Generos[] body = responseEntity.getBody();
