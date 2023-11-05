@@ -8,7 +8,7 @@
         <main>
             <!-- Contenido -->
         <div class="page-header text-center">
-            <h2 th:text="${juego.idjuego == 0? 'Nuevo Juego' : 'Editar Juego'}"></h2>
+            <h2 th:text="${juego.idjuego == null? 'Nuevo Juego' : 'Editar Juego'}"></h2>
         </div>
         <div class="container-fluid">
                 <form method="POST" class="row g-3" th:object="${juego}"  th:action="@{/juegos/guardar}">
@@ -23,7 +23,7 @@
                         <div class="invalid-feedback" th:if="${#fields.hasErrors('descripcion')}" th:errors="*{descripcion}">Error</div>
                     </div>
                     <div class="form-group">
-                        <label for="genero.idgenero">Género</label>
+                        <label for="genero">Género</label>
                         <select class=" form-select" th:classappend="${#fields.hasErrors('genero.idgenero')?'is-invalid':''}" th:field="*{genero.idgenero}" >
                             <option value="-1">- Seleccione -</option>
                             <option th:each="genero : ${listaGeneros}"
@@ -34,7 +34,7 @@
                         <div class="invalid-feedback" th:if="${#fields.hasErrors('genero.idgenero')}" th:errors="*{genero.idgenero}">Error</div>
                     </div>
                     <div class="form-group">
-                        <label for="plataforma.idplataforma">Plataforma</label>
+                        <label for="plataforma">Plataforma</label>
                         <select class="form-select" th:classappend="${#fields.hasErrors('plataforma.idplataforma')?'is-invalid':''}" th:field="*{plataforma.idplataforma}" >
                           <option value="-1">- Seleccione -</option>
                           <option th:each="plataforma : ${listaPlataformas}"
@@ -45,7 +45,7 @@
                         <div class="invalid-feedback" th:if="${#fields.hasErrors('plataforma.idplataforma')}" th:errors="*{plataforma.idplataforma}">Error</div>
                     </div>
                     <div class="form-group">
-                        <label for="distribuidora.iddistribuidora">Distribuidora</label>
+                        <label for="distribuidora">Distribuidora</label>
                         <select class="form-select" th:classappend="${#fields.hasErrors('distribuidora.iddistribuidora')?'is-invalid':''}" th:field="*{distribuidora.iddistribuidora}" >
                             <option value="-1">- Seleccione -</option>
                             <option th:each="distribuidora : ${listaDistribuidoras}"
@@ -72,7 +72,7 @@
                     <input type="hidden" th:field="*{idjuego}" />
                     <div class="form-group">
                         <a th:href="@{/juegos/lista}" class="btn btn-danger">Cancelar</a>
-                        <button type="submit" class="btn btn-primary" th:text="${juego.idjuego == 0? 'Registrar' : 'Actualizar'}">Reg/act</button>
+                        <button type="submit" class="btn btn-primary" th:text="${juego.idjuego == null? 'Registrar' : 'Actualizar'}">Reg/act</button>
                     </div>
                 </form>
         </div>

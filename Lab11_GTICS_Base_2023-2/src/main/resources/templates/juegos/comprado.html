@@ -2,7 +2,7 @@
 <head th:replace="fragments/base.html :: head(title='Gameshop4 - Bienvenido')"></head>
 <body>
 <div class='container container-app'>
-    <div th:replace="fragments/header.html :: header(option='Juegos')"></div>
+    <div th:replace="fragments/header.html :: header(option='MisJuegos')"></div>
 
     <div id="content">
         <main>
@@ -44,6 +44,7 @@
                         <td><a class="btn btn-primary" th:href="@{'/juegos/edit' + '?id=' + ${juegos.juegos.idjuego}}" th:title="Editar" ><span class="bi bi-pencil-square"></span></a></td>
                         <td><a class="btn btn-danger" th:href="@{'/juegos/delete' + '?id=' + ${juegos.juegos.idjuego}}" th:title="Borrar" ><span class="bi bi-trash"></span></a></td>
                         <td><a class="btn btn-danger" th:href="@{'/juegos/ver' + '?id=' + ${juegos.juegos.idjuego}}" th:title="Borrar" ><span class="fa fa-eye"></span></a></td>
+
 
                     </tr>
                     </tbody>

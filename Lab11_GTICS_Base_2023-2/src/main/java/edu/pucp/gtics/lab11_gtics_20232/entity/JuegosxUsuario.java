@@ -19,7 +19,7 @@ public class JuegosxUsuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idjuegosxusuario", nullable = false)
-    private int idJuegosxUsuario;
+    private Integer idJuegosxUsuario;
 
     @ManyToOne
     @JoinColumn(name = "idjuego")

@@ -1,12 +1,14 @@
 package edu.pucp.gtics.lab11_gtics_20232.entity;
 
 import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
 
 @Getter
+@Setter
 @Entity
 @Table(name = "distribuidoras")
 public class Distribuidoras {
@@ -14,7 +16,7 @@ public class Distribuidoras {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Min(value = 0, message = "Distribuidora no puede estar vacío")
-    private int iddistribuidora;
+    private Integer iddistribuidora;
 
     @Size(min=3, max = 50, message = "Debe contener entre 3 y 50 caracteres")
     private String nombre;
@@ -36,27 +38,4 @@ public class Distribuidoras {
     @Valid
     private Paises pais;
 
-    public void setIddistribuidora(int iddistribuidora) {
-        this.iddistribuidora = iddistribuidora;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
-    public void setWeb(String web) {
-        this.web = web;
-    }
-
-    public void setFundacion(int fundacion) {
-        this.fundacion = fundacion;
-    }
-
-    public void setPais(Paises pais) {
-        this.pais = pais;
-    }
 }
