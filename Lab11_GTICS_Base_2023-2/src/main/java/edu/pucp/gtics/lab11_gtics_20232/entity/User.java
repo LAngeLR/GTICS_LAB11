@@ -30,7 +30,24 @@ public class User {
     @Size(min=6, message = "La contraseña no puede tener menos de 6 caracteres")
     @Pattern(regexp = "^(?=.*[A-Z])(?=.*\\d).*$", message = "La contraseña debe contener al menos una mayúscula y un número.")
     private String password;
+
+    @NotBlank(message = "El telefono no puede estar en blanco")
+    @Pattern(regexp = "^[0-9]{9}$", message = "El teléfono debe contener exactamente 9 números")
+    private String telefono;
     private String autorizacion;
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
+    public void setEnabled(int enabled) {
+        this.enabled = enabled;
+    }
+
     private int enabled;
 
     public int getIdusuario() {
