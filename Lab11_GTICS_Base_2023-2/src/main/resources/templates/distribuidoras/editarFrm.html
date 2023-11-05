@@ -36,7 +36,7 @@
                         <label for="pais.idpais">Sede</label>
                         <select class="form-select" th:classappend="${#fields.hasErrors('pais.idpais')?'is-invalid':''}" th:field="*{pais.idpais}" >
                             <option value="-1">- Seleccione -</option>
-                            <option th:each="pais : ${listaPaises}"
+                            <option th:each="pais : ${listaSedes}"
                                     th:value="${pais.idpais}"
                                     th:text="${pais.nombre}"
                                     th:selected="(${pais.idpais} == *{pais.idpais})" ></option>

@@ -1,12 +1,15 @@
 package edu.pucp.gtics.lab11_gtics_20232.dao;
+import edu.pucp.gtics.lab11_gtics_20232.entity.*;
 import edu.pucp.gtics.lab11_gtics_20232.entity.Distribuidoras;
-import edu.pucp.gtics.lab11_gtics_20232.entity.Paises;
-import edu.pucp.gtics.lab11_gtics_20232.entity.Plataformas;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
@@ -32,7 +35,7 @@ public class DistribuidorasDao {
     public void guardar(Distribuidoras distribuidoras){
 
         RestTemplate restTemplate = new RestTemplate();
-        String endPoint = "http://localhost:8081/distribuidora/lista";
+        String endPoint = "http://localhost:8081/api/distribuidora/lista";
 
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.setContentType(MediaType.APPLICATION_JSON);
@@ -46,4 +49,28 @@ public class DistribuidorasDao {
         }
 
     }
+
+    public Distribuidoras buscarPorId(int id){
+
+        Distribuidoras distribuidora = null;
+
+        RestTemplate restTemplate = new RestTemplate();
+
+        String url = "http://localhost:8081/api/distribuidora/lista?id=" + id;
+
+        ResponseEntity<Distribuidoras> forEntity = restTemplate.getForEntity(url, Distribuidoras.class);
+
+        if (forEntity.getStatusCode().is2xxSuccessful()) {
+            distribuidora = forEntity.getBody();
+        }
+
+        return distribuidora;
+    }
+
+    public void borrarDistribuidora(int id) {
+        RestTemplate restTemplate = new RestTemplate();
+        restTemplate.delete("http://localhost:8081/api/distribuidora/lista?id=" + id);
+    }
+
+
 }
