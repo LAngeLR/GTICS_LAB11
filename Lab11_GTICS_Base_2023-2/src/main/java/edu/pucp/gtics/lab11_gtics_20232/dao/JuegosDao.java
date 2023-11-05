@@ -31,14 +31,13 @@ public class JuegosDao {
        return lista;
    }
 
-   public List<Juegos> listarMisJuegos(Integer idUsuario){
+   public List<JuegosxUsuario> listarMisJuegos(Integer idUsuario){
        RestTemplate restTemplate = new RestTemplate();
-       String url = "http://localhost:8081/api/juegos/listaMisJuegos?id="+idUsuario;
+       String url = "http://localhost:8081/api/juegos/lista?id="+idUsuario;
        ResponseEntity<JuegosxUsuario[]> responseEntity = restTemplate.getForEntity(url, JuegosxUsuario[].class);
        return Arrays.asList(responseEntity.getBody());
    }
 
-<<<<<<< HEAD
     public void guardar(Juegos juego){
 
         RestTemplate restTemplate = new RestTemplate();
@@ -73,8 +72,5 @@ public class JuegosDao {
 
         return juego;
     }
-=======
-
->>>>>>> 1116d5ee8ff51c0d25df91d3edcc9b2567286c01
 
 }

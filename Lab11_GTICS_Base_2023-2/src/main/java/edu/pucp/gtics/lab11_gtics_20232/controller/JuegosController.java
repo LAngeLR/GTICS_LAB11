@@ -114,13 +114,13 @@ public class JuegosController {
             return "redirect:/juegos/lista";
         }
     }
-
+*/
     @PostMapping("/juegos/guardar")
     public String guardarJuegos(Model model, RedirectAttributes attr, @ModelAttribute("juego") @Valid Juegos juego, BindingResult bindingResult ){
         if(bindingResult.hasErrors( )){
-            List<Plataformas> listaPlataformas = plataformasRepository.findAll();
-            List<Distribuidoras> listaDistribuidoras = distribuidorasRepository.findAll();
-            List<Generos> listaGeneros = generosRepository.findAll();
+            List<Plataformas> listaPlataformas = plataformasDao.listar();
+            List<Distribuidoras> listaDistribuidoras = distribuidorasDao.listar();
+            List<Generos> listaGeneros = generosDao.listar();
             model.addAttribute("juego", juego);
             model.addAttribute("listaPlataformas", listaPlataformas);
             model.addAttribute("listaDistribuidoras", listaDistribuidoras);
@@ -132,13 +132,13 @@ public class JuegosController {
             } else {
                 attr.addFlashAttribute("msg", "Juego actualizado exitosamente");
             }
-            juegosRepository.save(juego);
+            juegosDao.guardar(juego);
             return "redirect:/juegos/lista";
         }
 
 
     }
-
+/*
     @GetMapping("/juegos/borrar")
     public String borrarJuegos(@RequestParam("id") int id){
         Optional<Juegos> opt = juegosRepository.findById(id);
