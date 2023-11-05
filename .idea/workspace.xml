@@ -4,6 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+
     <list default="true" id="6a2baff2-aa8b-4127-9157-cef14df6cf68" name="Changes" comment="juan">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Lab11_GTICS_Base_2023-2/src/main/java/edu/pucp/gtics/lab11_gtics_20232/controller/DistribuidorasController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lab11_GTICS_Base_2023-2/src/main/java/edu/pucp/gtics/lab11_gtics_20232/controller/DistribuidorasController.java" afterDir="false" />
@@ -64,13 +65,14 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "spring.configuration.checksum": "c8827633499db5807c4b7ee2bd4a1d4c",
     "vue.rearranger.settings.migration": "true"
+
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Juan Alfonso\Desktop\GTICS\LAB10\LAB11\Lab11_GTICS_Base_2023-2\src\main\java\edu\pucp\gtics\lab11_gtics_20232\dao" />
@@ -100,6 +102,7 @@
       <workItem from="1699138072329" duration="1997000" />
       <workItem from="1699143996361" duration="1264000" />
       <workItem from="1699159164194" duration="15993000" />
+
     </task>
     <task id="LOCAL-00001" summary="juan">
       <created>1699170497624</created>
@@ -135,5 +138,6 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="juan" />
     <option name="LAST_COMMIT_MESSAGE" value="juan" />
+
   </component>
 </project>

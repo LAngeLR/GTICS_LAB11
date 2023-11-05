@@ -36,6 +36,18 @@ public class User {
     private String telefono;
     private String autorizacion;
 
+    @NotBlank(message = "El número de cuenta no puede estar en blanco")
+    @Pattern(regexp = "^[0-9]{20}$", message = "El número de cuenta debe contener exactamente 20 números")
+    private String numerocuenta;
+
+    public String getNumerocuenta() {
+        return numerocuenta;
+    }
+
+    public void setNumerocuenta(String numerocuenta) {
+        this.numerocuenta = numerocuenta;
+    }
+
     public String getTelefono() {
         return telefono;
     }
