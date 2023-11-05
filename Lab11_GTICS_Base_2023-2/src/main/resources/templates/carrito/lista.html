@@ -22,13 +22,27 @@
                     <thead>
                     <tr>
                         <th>#</th>
-                        <th></th>
-                        <th style="width: 8%"></th>
+                        <th style="width: 18%">Nombre</th>
+                        <th style="width: 20%">Descripción</th>
+                        <th style="width: 10%">Género</th>
+                        <th style="width: 10%">Plataforma</th>
+                        <th style="width: 10%">Distribuidora</th>
+                        <th style="width: 10%">Cantidad</th>
+                        <th style="width: 10%">Precio unitario (S/)</th>
+                        <th style="width: 8%">Eliminar</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td><a class="btn btn-danger" th:title="Borrar" href="#"><span class="bi bi-trash"></span></a></td>
+                    <tr th:each="juegos, info : ${listaCarrito}">
+                        <td th:text="${info.index + 1}"></td>
+                        <td th:text="${juegos.id.juegos.nombre}"></td>
+                        <td th:text="${juegos.id.juegos.descripcion}"></td>
+                        <td th:text="${juegos.id.juegos.genero.nombre}"></td>
+                        <td th:text="${juegos.id.juegos.plataforma.nombre}"></td>
+                        <td th:text="${juegos.id.juegos.distribuidora.nombre}"></td>
+                        <td th:text="${juegos.cantidadJuego}"></td>
+                        <td th:text="${juegos.id.juegos.precio}"></td>
+                        <td><a class="btn btn-danger" th:title="Borrar" th:href="@{'/paquetes/delete' + '?id=' + ${juegos.id.juegos.idjuego}}"><span class="bi bi-trash"></span></a></td>
                     </tr>
                     </tbody>
                 </table>

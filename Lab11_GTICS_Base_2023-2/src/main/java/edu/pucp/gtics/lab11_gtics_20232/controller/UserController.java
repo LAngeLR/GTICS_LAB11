@@ -1,7 +1,10 @@
 package edu.pucp.gtics.lab11_gtics_20232.controller;
 
 
+import edu.pucp.gtics.lab11_gtics_20232.dao.CarritoDao;
+import edu.pucp.gtics.lab11_gtics_20232.dao.JuegosDao;
 import edu.pucp.gtics.lab11_gtics_20232.dao.UsuarioDao;
+import edu.pucp.gtics.lab11_gtics_20232.entity.CarritoCompras;
 import edu.pucp.gtics.lab11_gtics_20232.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 /*import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -20,6 +23,12 @@ public class UserController {
     @Autowired
     private UsuarioDao usuarioDao;
 
+    @Autowired
+    private CarritoDao carritoDao;
+
+    @Autowired
+    private JuegosDao juegosDao;
+
 /*
     final PasswordEncoder passwordEncoder;
 
@@ -28,9 +37,15 @@ public class UserController {
     }
 */
 
+    @GetMapping(value = {"/",""})
+    public String index(Model model){
 
-/*    @GetMapping({"/","/login"})
-    public String login(){return "user/signIn";}*/
+        model.addAttribute("listaJuegos", juegosDao.listar());
+        return "juegos/vista";
+    }
+
+    @GetMapping("/login")
+    public String login(){return "user/signIn";}
 
     @GetMapping(value = "/registro")
     public String registro(@ModelAttribute("usuario") User usuario){return "user/signUp";}
@@ -49,8 +64,17 @@ public class UserController {
             usuario.setEnable(1);
             usuario.setAutorizacion("USER");
 //            usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
+
+            CarritoCompras carritoCompras = new CarritoCompras();
+            carritoCompras.setIdcarritocompras(usuario.getIdusuario());
+            carritoCompras.setUsuario(usuario);
+            carritoCompras.setCantidadTotal(0);
+
+
             attr.addFlashAttribute("msg","Usuario registrado correctamente");
             usuarioDao.guardarUsuario(usuario);
+            carritoDao.guardarCarrito(carritoCompras);
+
             return "redirect:/login";
         }
     }

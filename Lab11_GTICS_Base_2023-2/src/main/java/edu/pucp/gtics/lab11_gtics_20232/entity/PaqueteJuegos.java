@@ -12,15 +12,13 @@ import java.io.Serializable;
 @Setter
 public class PaqueteJuegos implements Serializable {
 
-    @Id
-    @ManyToOne
-    @JoinColumn(name = "idcarritocompras")
-    private CarritoCompras carritoCompras;
+
+    @EmbeddedId
+    private PaqueteJuegosPK id;
 
     @Column(name = "cantidadJuego")
     private int cantidadJuego;
 
-    @ManyToOne
-    @JoinColumn(name = "idjuegoseleccionado")
-    private Juegos juegos;
-}
+    public PaqueteJuegos() {
+        this.id = new PaqueteJuegosPK();
+    }}

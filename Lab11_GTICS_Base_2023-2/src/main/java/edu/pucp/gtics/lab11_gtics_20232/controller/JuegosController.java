@@ -53,6 +53,13 @@ public class JuegosController {
         return "juegos/comprado";
     }
 
+/*    @GetMapping(value = "/detalle")
+    public String detalleJuegos (Model model, @RequestParam("id") int id){
+        Juegos juego = juegosDao.buscarPorId(id);
+        model.addAttribute("juego", juego);
+        return "juegos/vista";
+    }*/
+
     @GetMapping(value = { "/nuevo"})
     public String nuevoJuegos(Model model, @ModelAttribute("juego") Juegos juego){
         model.addAttribute("listaPlataformas", plataformasDao.listar());

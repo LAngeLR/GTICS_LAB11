@@ -17,7 +17,7 @@ public class CarritoCompras {
     private int idcarritocompras;
 
     @Column(name = "cantidadtotal")
-    private int cantidadTotal;
+    private double cantidadTotal;
 
     @OneToOne
     @JoinColumn(name = "idusuario")
